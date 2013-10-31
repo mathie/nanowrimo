@@ -1,0 +1,11 @@
+---
+layout: default
+title: All articles
+---
+{% for post in site.posts limit: 1 %}
+  {% include post_summary.html post=post %}
+{% endfor %}
+
+{% for post in site.posts offset: 1 %}
+  {% include post_summary.html post=post rule=true %}
+{% endfor %}

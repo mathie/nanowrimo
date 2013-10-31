@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'date'
+
+date = Date.today
+title = ARGV[0]
+
+raise "Needs a title!" if title.nil?
+
+filename_title = "#{title.downcase.gsub(/\W+/, '-').gsub(/^-/, '').gsub(/-$/, '')}"
+draft_filename = "_drafts/#{filename_title}.markdown"
+published_filename = "_posts/#{date.strftime('%Y-%m-%d')}-#{filename_title}.markdown"
+
+raise "Draft doesn't exist!" unless File.exist?(draft_filename)
+
+system "git mv #{draft_filename} #{published_filename}"
+system "git commit -m 'Published \"#{title}\".'"

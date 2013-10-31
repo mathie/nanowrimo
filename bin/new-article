@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+title = ARGV[0]
+
+raise "Needs a title!" if title.nil?
+
+filename_title = "#{title.downcase.gsub(/\W+/, '-').gsub(/^-/, '').gsub(/-$/, '')}"
+draft_filename = "_drafts/#{filename_title}.markdown"
+
+File.open(draft_filename, 'w') do |f|
+  f.write <<-EOF
+---
+layout: post
+title: #{title}
+---
+  EOF
+end
+
+system "git add #{draft_filename}"
+system "git commit -m 'New template for #{title}'"
+system "vim #{draft_filename}"

@@ -129,3 +129,10 @@ in putting up with me for some reason.
 In short, it's hard to see the big picture. It's hard to think strategically
 when you're in the trenches, acting tactically. It's much easier to be reactive
 and do the simplest thing that could possibly work in the situation.
+
+So what do you do about it? Breathe, damn it. When you're in a situation where
+all you can see is the coal face, and you're getting angry and frustrated,
+stop. Take a step back, breathe (mindfully focus on that breath, which we'll
+talk about another day) and think of the context, the bigger picture. Why is
+that code like that? Why is Malcolm acting the way he is? Why am I reacting
+badly to this situation? Pause, breathe, think about it, then act.

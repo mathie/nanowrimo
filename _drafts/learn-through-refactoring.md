@@ -491,4 +491,77 @@ with and with the idiomatic use of it.
 And I've outlined what I think of as the 'brute force and ignorance' method for
 learning a new language. Having become proficient (at least) in a few languages
 already (the more languages you learn, the easier it gets, so I'm told), I feel
-I'm able to become proficient in a new language in around 6 months.
+I'm able to become proficient in a new language in around 6 months. That's the
+point where I can comfortably discard the old 'familiar' language and consider
+the new language to be the familiar one.
+
+Is there a better way? Not really, no. It takes deliberate practice to improve
+your skills. However, here's something I've been playing around with lately, as
+an example of deliberate practice. The idea is learning a new programming
+language through refactoring some existing code to take advantage of the
+programming language's natural style, standard library and idioms.
+
+## Refactoring?
+
+But wait, what's refactoring all about anyway? Simply put, refactoring is
+modifying existing code, without changing its behaviour, to improve it.
+Typically, in the small, it's performed as an integral component of the Test
+Driven Development cycle:
+
+* **Red** Get yourself to red by writing a failing test that exercises the code
+  you wish you had. You're looking to drive out the implementation of the
+  system, one small test at a time, so you could be picking on a new method on
+  a particular object -- which is naturally going to fail because the method
+  doesn't exist yet -- or enhancing an existing method to deal with a different
+  set of inputs.
+
+* **Green** And now we get to green as quickly as possible. Write the simplest,
+  dirtiest, hackiest code that makes the test pass. You have explicit
+  permission to write *bad* code here, because the next step is...
+
+* **Refactor** Take that code in the context of the entire system and ask
+  yourself how you can make it better? Can you reduce duplication by merging
+  some of your code with the same code in another method? Can you extract some
+  of the functionality out into a separate method to increase
+  readability/expressiveness? (Refactoring applies to the tests as well as the
+  code, of course, although I'm personally a little more forgiving of
+  duplication in tests as it can often increase expressiveness.)
+
+Repeat these steps often enough, and you'll wind up with a working system. What
+I'm often surprised by is that it's a different system to the application I
+imagined building in the first place. A few observations:
+
+* All the steps have to be followed rigourously. By committing to refactoring,
+  you give yourself explicit permission to write the quickest, hackiest,
+  simplest possible code to solve the problem in the first place. This is
+  important. It allows you to quickly verify that you've asked the right
+  question (the right test) and have the right answer (the right code). There's
+  no point endlessly polishing and refactoring code when it turns out to be the
+  wrong solution in the first place.
+
+* Only refactor once you're at green, don't be tempted to refactor with a
+  failing test suite. OK, so you'll get away with it sometimes, but
+  occasionally it'll catch you out. Is it the same test(s) failing for the same
+  reason, or did you inadvertantly change the system under test?
+
+* Play with options. Quite often, refactoring "patterns" (for the canonical
+  catalogue of refactorings, see Martin Fowler's Refactoring to Patterns) come
+  in pairs. For example, two of the simple patterns that Martin describes are
+  'Extract Method' and 'Remove Redundant Method'.
+
+  The first takes a block of code inside an existing (usually large) method and
+  extracts it out to a separate method. This can be done if it's a long method
+  and you want to improve its expressiveness, or if similar code is used
+  duplicated in several places and it's possible to remove the duplication by
+  extracting out the common functionality.
+
+  'Remove Redundant Method' does the reverse -- you find a method that's only
+  called from a single site, and having it as a separate method doesn't improve
+  the readability of the code (often, with connaisance of location, it can
+  improve readability to have single long methods instead of lots of little
+  ones). You take the body of the method to remove and inline it at the call
+  site, tidying up arguments and variables along the way.
+
+  There's your hint that both ways of implementing something can be valid,
+  depending on the context. When you're refactoring, try out both ways. Which
+  one works best? Which one are you going to like best in six months times?

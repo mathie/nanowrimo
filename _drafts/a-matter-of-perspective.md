@@ -21,6 +21,8 @@ support. The end result of this is that the people on the software development
 team become removed from the customers. This is bad on so many levels, but I'm
 going to focus on one for now.
 
+## Bugs
+
 What do software developers spend much of their time dealing with? Bugs. Edge
 cases that were never considered in the first place. Stuff that's just plain
 wrong. Software that doesn't scale to meet the growth curve. The hacky bits
@@ -56,6 +58,8 @@ colleagues are really just criticising the code (not the person).
 
 It's a tough life being a programmer, eh?
 
+## Award Winning
+
 Of course, the same piece of software is winning awards. Customers love it. It
 genuinely is a fantastic solution to the problem domain. Yes, OK, there are
 edge cases which trip up the odd person, and there are one or two people who
@@ -74,6 +78,8 @@ work. It's much, much harder to do it on a personal level. When you're living
 with something every day, it's easy to spot the quirks, the foibles, the
 suboptimal design decisions. And it's equally easy to dismiss the good things,
 the positive difference it makes to our world.
+
+## Falling Down
 
 Take our house, for example. It's an 'upper villa', which I gather is a
 dwelling configuration largely confined to Scotland. We're in the middle of a
@@ -102,8 +108,8 @@ satisfied with a shower when we go on holiday because it's not as good as home.
 We've got a well specified kitchen, with an awesome cooker that I love to bits.
 (Most of the rest of the kitchen awesomeness is portable -- my favourite knives
 for example -- so that doesn't really count.) We've got room in our bedroom for
-the largest standard bed size that exists (super king). (Though I still only
-wind up with a sliver at the side most nights.)
+the largest standard bed size that exists (super king), even if I still only
+wind up with a sliver at the side most nights.
 
 Location-wise, it's pretty good, too. I can be in central Edinburgh in 15
 minutes by train, if I time it correctly. We're just near the end of the
@@ -116,21 +122,24 @@ walk.
 It genuinely is a lovely place to live, but it's difficult to remember that
 some days.
 
-More personally, the same thing is true of my son, Malcolm. It's difficult to
-remember, sometimes, when you're in the thick of the situation and he's doing
-what he does best when he's bored: rolling on the floor, kicking his sister.
-It's tricky to see the big picture when yet again, for the fourth morning in a
-row (and it's only Thursday!), he's spent twenty minutes standing in the shower
--- when we're all trying to get out to school/work -- and he's not even started
-washing with soap.
+## Shower Power
+
+More personally, the same thing is true of my son, who's nearly 6. It's
+difficult to remember, sometimes, when you're in the thick of the situation and
+he's doing what he does best when he's bored: rolling on the floor, kicking his
+sister.  It's tricky to see the big picture when yet again, for the fourth
+morning in a row (and it's only Thursday!), he's spent twenty minutes standing
+in the shower -- when we're all trying to get out to school/work -- and he's
+not even started washing with soap (there's a reason I wrote [shower
+power](http://shower-power.herokuapp.com/)!).
 
 The trouble is that these impressions are all immediate and short term. Malcolm
 is a smart, hard working, considerate, compassionate kid. I am very proud of
-him, and I know that other people sing his praises. I know for sure that he
-already makes a positive difference to other people's lives. He makes a
-positive difference to my life. I can see how much his friends like him (and he
-seems to have a way with the girls!). And I can see how incredibly important he
-is to his grandparents. In short, he's awesome.
+Malcolm, and I know that other people sing his praises. I know for sure that he
+already makes a positive difference to other people's lives. He definitely
+makes a positive difference to my life. I can see how much his friends like him
+(and he seems to have a way with the girls!). And I can see how incredibly
+important he is to his grandparents. In short, he's awesome.
 
 But some days it's difficult to appreciate that.
 
@@ -138,9 +147,9 @@ The trouble is, the same is true of me, personally. I drink too much. I obsess
 about controlling silly things -- my weight?! -- when it feels like everything
 else is out of control. I let people down. I'm poor at communicating
 effectively. I commit to more work than I'm capable of doing. I write software
-that is delivered late and has bugs. And I've got some really fucking noisy
-gremlins in my head, telling me I'm not important, I'm not good enough, I'm not
-worthy.
+that is delivered late and has bugs. I'm a bad parent. And I've got some really
+fucking noisy gremlins in my head, telling me I'm not important, I'm not good
+enough, I'm not worthy.
 
 But you know what? Other people say nice things about me. People continue to
 work with me, getting value for money from my technical abilities. I provide a

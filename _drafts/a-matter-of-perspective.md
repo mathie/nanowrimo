@@ -28,7 +28,7 @@ that are slowing down development and really need to be rewritten. Poor
 decisions by the eejit that was fired six months ago. It's a constant reminder
 that the software we've built is wrong, is substandard, is *not good enough*.
 
-Sometimes, we even have bosses or other members of the team who (inadvertantly,
+Sometimes, we even have bosses or other members of the team who (inadvertently,
 one would graciously assume) reinforce these feelings. Developers are chastised
 for introducing bugs, singled out personally for causing performance
 regressions, often by generally well meaning managers who have poor people
@@ -43,7 +43,7 @@ It's not all doom and gloom, of course. There's no feeling quite like fixing a
 bug. Finally vanquishing some pernicious issue that's vexed the team for weeks.
 (And when it's a production-only issue involving concurrency, scaling and
 locks, it's incredibly satisfying to figure it out!) There's definitely a
-seratonin hit from launching new features, too. Seeing the code you've been
+serotonin hit from launching new features, too. Seeing the code you've been
 working on for months hit production at last and work just right is an awesome
 experience.
 
@@ -66,7 +66,7 @@ It's tricky, when you're at the coal face, to see that you're building
 something cool. All you see are the bugs, the deficiencies, the lurking
 horrors. You use the system so often (who doesn't test stuff through the
 browser, just to be on the safe side?) that you know some operations are
-irritating, repetetive and slow. (You're not using the system in the same way
+irritating, repetitive and slow. (You're not using the system in the same way
 as the customers, which is probably why it irritates you more than them.)
 
 It's (relatively) easy to step back, take a bit of perspective, and see this at
@@ -75,12 +75,27 @@ with something every day, it's easy to spot the quirks, the foibles, the
 suboptimal design decisions. And it's equally easy to dismiss the good things,
 the positive difference it makes to our world.
 
-Take our flat, for example. Our flat's common access stair is falling apart --
-and the repairs are going to cost us a significant portion of the value of the
-house to put right. It's in dire need of some attention on the decoration side,
-too. It doesn't catch the sun most of the day (I've spent entire days in there
-thinking it's dull and miserable outside, when it's been a lovely sunny day
-outside). And it's getting a bit small for two adults and two kids.
+Take our house, for example. It's an 'upper villa', which I gather is a
+dwelling configuration largely confined to Scotland. We're in the middle of a
+long terrace of sandstone houses. The lower and upper stories are split into
+separate houses. Every eight houses, there's a close (an access corridor)
+through to the back of the houses where there's a set of stairs and a balcony
+to allow access to the front doors of the upper villas.
+
+Our flat's common access stair and balcony is falling apart -- and the repairs
+are going to cost us a significant portion of the value of the house to put
+right. Replacing the balcony is a huge project, involving many stakeholders
+(not least the owners of the eight flats that it serves, only five of whom
+currently live there). We don't feel we can sell the place and move on until
+it's been sorted, yet it's been dragging on for 2 years now and has barely
+progressed.
+
+Internally, the flat is in dire need of some attention on the decoration side,
+too. The carpet in the hall has been on its last legs for years. It's draughty
+and difficult to keep warm. It doesn't catch the sun most of the day (I've
+spent entire days in there thinking it's dull and miserable outside, when it's
+been a lovely sunny day outside). And it's getting a bit small for two adults
+and two kids. And the attic ... oh dear, the attic is a complete disaster.
 
 But we've got a delightful bathroom with a fantastic shower. I'm never
 satisfied with a shower when we go on holiday because it's not as good as home.
@@ -90,11 +105,19 @@ for example -- so that doesn't really count.) We've got room in our bedroom for
 the largest standard bed size that exists (super king). (Though I still only
 wind up with a sliver at the side most nights.)
 
+Location-wise, it's pretty good, too. I can be in central Edinburgh in 15
+minutes by train, if I time it correctly. We're just near the end of the
+Edinburgh bypass, so it's convenient for driving south or west. There are a
+couple of handy shops nearby and a large Tesco in easy walking distance.
+There's a beautiful riverside walk nearby, play parks for the kids, and a
+couple of really nice (award winning, in one case) pubs within 15 minutes'
+walk.
+
 It genuinely is a lovely place to live, but it's difficult to remember that
 some days.
 
 More personally, the same thing is true of my son, Malcolm. It's difficult to
-remember, sometimes, when you're in the thick of a situation and he's doing
+remember, sometimes, when you're in the thick of the situation and he's doing
 what he does best when he's bored: rolling on the floor, kicking his sister.
 It's tricky to see the big picture when yet again, for the fourth morning in a
 row (and it's only Thursday!), he's spent twenty minutes standing in the shower
@@ -104,7 +127,7 @@ washing with soap.
 The trouble is that these impressions are all immediate and short term. Malcolm
 is a smart, hard working, considerate, compassionate kid. I am very proud of
 him, and I know that other people sing his praises. I know for sure that he
-already makes a positive difference to other people's lives. He makes a net
+already makes a positive difference to other people's lives. He makes a
 positive difference to my life. I can see how much his friends like him (and he
 seems to have a way with the girls!). And I can see how incredibly important he
 is to his grandparents. In short, he's awesome.
@@ -112,15 +135,15 @@ is to his grandparents. In short, he's awesome.
 But some days it's difficult to appreciate that.
 
 The trouble is, the same is true of me, personally. I drink too much. I obsess
-about controlling silly things -- my weight?! -- because it feels like
-everything else is out of control. I let people down. I'm poor at communicating
+about controlling silly things -- my weight?! -- when it feels like everything
+else is out of control. I let people down. I'm poor at communicating
 effectively. I commit to more work than I'm capable of doing. I write software
 that is delivered late and has bugs. And I've got some really fucking noisy
 gremlins in my head, telling me I'm not important, I'm not good enough, I'm not
 worthy.
 
 But you know what? Other people say nice things about me. People continue to
-work with me, getting value for money from my technical abilities. I provode a
+work with me, getting value for money from my technical abilities. I provide a
 decent income for my family. I spend quality time with the kids -- relatively
 "unique" contributions like teaching Malcolm to climb, teaching him about
 electronics, enthusing him about computing. And my wife, Annabel, must persist

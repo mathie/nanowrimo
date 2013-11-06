@@ -33,21 +33,19 @@ that the software we've built is wrong, is substandard, is *not good enough*.
 Sometimes, we even have bosses or other members of the team who (inadvertently,
 one would graciously assume) reinforce these feelings. Developers are chastised
 for introducing bugs, singled out personally for causing performance
-regressions, often by generally well meaning managers who have poor people
-skills, or by non-technical people who don't understand the complexities of
-the situation.
+regressions, often by generally well meaning colleagues who may have poor
+people skills, or by non-technical people who don't understand the complexities
+of the situation.
 
 (Pro tip: nobody can influence how you feel about something -- either
-positively or negatively -- it's your own head taking an external stimuli,
-inferring some meaning from it, and having some emotional response to it.)
+positively or negatively. It's your own head taking external stimuli, inferring
+some meaning from it, and having some emotional response to that stimuli.)
 
 It's not all doom and gloom, of course. There's no feeling quite like fixing a
 bug. Finally vanquishing some pernicious issue that's vexed the team for weeks.
-(And when it's a production-only issue involving concurrency, scaling and
-locks, it's incredibly satisfying to figure it out!) There's definitely a
-serotonin hit from launching new features, too. Seeing the code you've been
-working on for months hit production at last and work just right is an awesome
-experience.
+There's definitely a serotonin hit from launching new features, too. Seeing the
+code you've been working on for months hit production at last and work just
+right is an awesome experience.
 
 But then there's the months that you spent implementing that new feature,
 thinking it would never end. Those endless retrospectives after the estimate
@@ -70,8 +68,9 @@ It's tricky, when you're at the coal face, to see that you're building
 something cool. All you see are the bugs, the deficiencies, the lurking
 horrors. You use the system so often (who doesn't test stuff through the
 browser, just to be on the safe side?) that you know some operations are
-irritating, repetitive and slow. (You're not using the system in the same way
-as the customers, which is probably why it irritates you more than them.)
+irritating, repetitive and slow. (As an aside, you're not using the system in
+the same way as the customers, which is probably why it irritates you more than
+them.)
 
 It's (relatively) easy to step back, take a bit of perspective, and see this at
 work. It's much, much harder to do it on a personal level. When you're living
@@ -142,6 +141,8 @@ makes a positive difference to my life. I can see how much his friends like him
 important he is to his grandparents. In short, he's awesome.
 
 But some days it's difficult to appreciate that.
+
+## Not Good Enough
 
 The trouble is, the same is true of me, personally. I drink too much. I obsess
 about controlling silly things -- my weight?! -- when it feels like everything

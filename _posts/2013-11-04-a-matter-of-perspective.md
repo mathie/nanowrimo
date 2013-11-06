@@ -1,6 +1,10 @@
 ---
 layout: post
 title: A matter of perspective
+excerpt: |
+  Sometimes it's difficult to retain a sense of perspective when you're in the
+  tranches. This applies to all walks of life, whether it's software
+  development at work, the house you live in, your kids, or even yourself.
 ---
 Sometimes it's difficult to retain a sense of perspective when you're in the
 trenches. I've talked about this several times in the past in the context of

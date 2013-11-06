@@ -1,6 +1,10 @@
 ---
 layout: post
 title: The inner game of pool
+excerpt: |
+  It's a funny old game, pool. But how do you learn to play it? Malcolm and I
+  experiment a little with it, and have some insight on how to learn/teach
+  along the way.
 ---
 We're on holiday this week, in a lovely place on the Northumbrian coast. The
 house is fantastic -- it's unusual for me to get stay somewhere that has an

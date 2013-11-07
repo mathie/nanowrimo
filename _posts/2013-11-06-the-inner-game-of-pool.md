@@ -6,23 +6,27 @@ excerpt: |
   experiment a little with it, and have some insight on how to learn/teach
   along the way.
 ---
-We're on holiday this week, in a lovely place on the Northumbrian coast. The
-house is fantastic -- it's unusual for me to get stay somewhere that has an
-even better shower than home, and an even better kitchen than home (OK, so I
-brought my own knives). It's got a pool table, too.
+We're on holiday this week, in a [lovely place](http://www.ownersdirect.co.uk/england/E1909.htm)
+on the Northumbrian coast. The house is fantastic -- it's unusual for me to get
+stay somewhere that has an even better shower than home, and an even better
+kitchen than home (OK, so I brought my own knives). It's got a pool table, too.
 
 I haven't played pool in years. I used to play a bit as a student in the
-basement of Teviot (the student union), usually after far too many pints. I
-always felt I was OK at it -- I understood the theory of angles and spins and
-suchlike, mostly from playing various simplistic pool games on the BBC at home
--- but in practice I sucked. Most of the time, the ball I'm trying to pot goes
-off at a more acute angle than I want it to.
+basement of Teviot (Edinburgh University's student union), usually after far
+too many pints. I always felt I was OK at it -- I understood the theory of
+angles and spins and suchlike, mostly from playing various simplistic pool
+games on the BBC Model B computer at home -- but in practice I sucked. Most of
+the time, the ball I'm trying to pot goes off at a more acute angle than I want
+it to.
+
+## The Inner Game
 
 Teaching Malcolm to play pool has been really good fun, and it's improved my
 game, too. I've been using the opportunity to practice something I've been
 reading in [Pragmatic Thinking and Learning](http://pragprog.com/book/ahptl).
 It's the concept of the "inner game" (vs the outer game), as introduced by the
-Inner Game of Tennis in 1974.
+[Inner Game of Tennis](http://www.amazon.co.uk/gp/product/0330295136/ref=as_li_ss_tl?ie=UTF8&camp=1634&creative=19450&creativeASIN=0330295136&linkCode=as2&tag=mathieoftheen-21)
+in 1974.
 
 The outer game is the part with the rules (you potted the white, two shots to
 me!). It's the part where you can describe techniques to improve your play. In
@@ -32,6 +36,8 @@ The inner game is the non-verbal R-mode side. It's using your intuition to
 improve your performance through a rapid feedback loop. Hit the cue ball this
 way, and it strikes the ball there; hit it slightly differently and it spins
 off to the side.
+
+## The Inner Game of Tennis
 
 Andy retells the story of a tennis coach who is tasked with teaching a woman in
 her late fifties, with no particular athletic ability, to play a game of tennis
@@ -48,10 +54,10 @@ beautiful sound when you hit the ball just right. Conversely, they make a
 discordant note when you get it wrong.) She wasn't given this information, just
 asked to listen to the sound.
 
-In learning to serve, the just asked her to hum a phrase as he served the ball.
-Something that would match the rhythm of the move. After a while, the woman was
-to mimic the act of serving using the same phrase and rhythm, but without
-worrying about the ball. Finally, the ball was introduced.
+In learning to serve, the coach just asked her to hum a phrase as he served the
+ball.  Something that would match the rhythm of the move. After a while, the
+woman was to mimic the act of serving using the same phrase and rhythm, but
+without worrying about the ball. Finally, the ball was introduced.
 
 Another technique was to place a chair at the other end of the court, and hit
 the ball towards it. The goal was not to hit the chair. Instead the goal was
@@ -59,16 +65,20 @@ simply to notice where the ball landed in relation to the chair. Did it go to
 the left or right? Did it fall short or sail over? Simply be aware of what
 happened and move on to the next shot.
 
+## The Inner Game of Pool
+
 I wondered what would happen if I applied these ideas to teaching Malcolm to
 play pool. It had been interesting to observe other people playing pool with
 Malcolm (which is probably what sparked the idea in the first place).
+
+### You're holding it wrong!
 
 The main trouble is that Malcolm chose to hold his cue in a slightly curious
 manner. He's bridging with his right hand and providing the power with his left
 (which, since I do it the other way around, strikes me as a left-handed hold)
 but in other activities (like writing), his right hand seems dominant.
 
-In addition, he's holding the cue 'underarm' instead of 'overarm'. Personally,
+In addition, he's holding the cue 'overarm' instead of 'underarm'. Personally,
 I think this is just because he's quite short in relation to the table, and
 it's just a more comfortable hold. (Having mentioned that in this presence,
 while defending him, he's rationalised it that way now, too.)
@@ -82,6 +92,8 @@ Either way, games with them tended to devolve into an argument about how
 Malcolm should hold his cue, trying to describe the correct way to hold it.
 Let's just say that Malcolm is extremely stubborn, and this is a widespread
 family trait...
+
+### Follow the rules!
 
 I was just as bad. I was fine with Malcolm holding the cue however he pleased,
 just trying to remind him of little things like putting his bridging hand down
@@ -105,6 +117,8 @@ in reality:
 * I still can't remember the second reason, even while I'm redrafting! What do
   you think it might be?
 
+### A simpler approach
+
 Anyway. I got to thinking there might be something to this way of learning. So
 instead of playing pool, we simplified it a little. We set up the balls in the
 triangle in the same way, but instead of pool's relatively complicated set of
@@ -119,6 +133,8 @@ that Malcolm's basic technique improved (though I didn't objectively measure).
 But at the time, the main thing from it was that we both had fun. The games
 didn't end in a huffy argument, at least. :) And that's what it's really about
 at this stage, right?
+
+### A new game
 
 The next morning, Malcolm and I were up early. Before I'd even finished brewing
 the first Chemex (one has priorities in the morning!), he was saying, "shall we
@@ -157,6 +173,8 @@ whichever suited) with the cue, which would bounce another one into the pocket.
 It's a simpler game, but allowed me to think about the kinds of angles I wanted
 to practice, and just to get feedback on trying various things.
 
+### Back to the chair
+
 Later on in the morning, when Malcolm was off exploring rock pools on the beach
 with the rest of the family, I simplified things even further. I started
 hitting the cue ball off the cushion with my cue, and observing where it wound
@@ -176,6 +194,8 @@ is still holding the cue in an unconventional manner, but he's planning and
 lining up shots, potting a few for good measure. I've improved my rate of
 potting the shots I attempt -- even starting to put some effort into lining up
 subsequent shots! And we're now both consistently beating Mummy. :)
+
+### Drawing parallels
 
 How, then, does one take a moral from this story and make some pithy
 observation about software development, or life in general? That's the easy

@@ -12,7 +12,7 @@ This week is a family holiday in the Northumbrian coast. I volunteered to be
 chef for the week. I really enjoy cooking but between work and family
 constraints I rarely get the opportunity, so I've been looking forward to the
 opportunity. There have been six of us here all week -- the maternal
-grandparents (afftectionately known as Mogie and Baba), Annabel, the two kids
+grandparents (affectionately known as Mogie and Baba), Annabel, the two kids
 and me. In addition, there have been various extra friends and family visiting
 through the week.
 
@@ -112,7 +112,8 @@ Then I mixed in the browned mince and a 'squeeze' (probably closer to half the
 tube!) of tomato paste. Everything got mixed up well, then I added two tins of
 chopped tomatoes, and a little water (washing out the tins of tomatoes). There
 was an open bottle of red wine, so I chucked in a splash of that for good
-measure. :)
+measure. :) While nobody was looking, I chucked in a tiny splash of my current
+hot sauce.
 
 Once it was back up to the boil, I covered it with a lid, turned it down to a
 light simmer and left it 'til the kids were in bed and everyone arrived. After
@@ -121,17 +122,178 @@ tagliatelle, and sticking a garlic bread in the oven. When the tagliatelle was
 ready and drained, I tossed it in a splash of the garlic-infused olive oil for
 good measure.
 
-Everyone seemed to enjoy it. As usual, I didn't even consider pudding. Mogie
-rescued that with a delicious fruit salad.
+Everyone seemed to enjoy it. There were a couple of comments about a lovely
+piquant taste, which I blame the hot sauce for. See, in small doses, it can
+work well. As usual, I didn't even consider pudding. Mogie rescued that with a
+delicious fruit salad.
 
 ## Saturday, 2nd November
 
-Joe, Charlie & Pete here, for the life of me, I can't remember what we had!
+> Joe, Charlie and Pete are here; fish and chips for tea!
+
+It turns out that the fish and chip shop opposite was closing for the season
+tonight. So today was our last chance for fish and chips? Who could resist?
+
+The kids ate up the remainders of last night's tagliatelle bolognese, and even
+seemed to like it. All of it disappeared anyway. :)
+
+I was quite keen on cod -- as usual since it's by far my favourite white fish
+-- but beggars can't be choosers on the last night of the season, so it was all
+about the haddock. It was a good haddock, though, with a delicious batter and
+moreish mushy peas. Chips I can happily skip, though with a bit of salt and
+vinegar, they can be OK.
+
+Still, that's me off the hook tonight. I'd hoped to save this wild card for
+later in the week, but that's OK.
 
 ## Sunday, 3rd November
 
-Joe & Charlie here for lunch before heading off; Pete heads off in the morning.
-The roast chicken Sunday lunch.
+> Joe & Charlie here for lunch before heading off; Pete heads off in the
+> morning. The roast chicken Sunday lunch.
+
+This is a meal I've done he components of a number of times before, and I've
+done almost exactly the same meal recently. Better still, I'm armed with a
+large vat of home made chicken stock that comes from the remains of barbecued
+beer can chickens, so the stock has a delicious smokey aroma. I can't lose. :)
+
+The menu is a simple roast chicken, maple-roast parsnips, roast citrus and
+fennel carrots, roast potatoes and gravy.
+
+I was most worried about the chicken. I hadn't really considered what to do
+with it (other than roast it). I was comfortable with winging it, though. I
+wanted oil and salt on the outside to make sure it crisped up nicely, and I
+wanted something shoved up its bottom to make sure it stayed moist. So I
+massaged some garlic-infused olive oil into the skin, along with a good grind
+of salt and pepper. As for the enema, I sliced up a lemon and a carrot, and
+shoved that in. That was enough.
+
+The chicken was of a weight that it got to sit in the oven for about 2 hours.
+In the meantime, I prepared the rest.
+
+The potatoes are nice and simple. Peel and chop them into lumps that are
+approximately the same size (this way they all cook about the same speed). I
+always find this to be easier said than done, particularly when Nigella is in
+the back of my head with a diagram showing me how I should cut them so
+everybody gets a traditionally shaped wedge. Honestly, it doesn't matter *that*
+much; some just wind up even crispier and crunchier than others.
+
+The parsnips are straightforward, too. I'm aiming for "splinters". Not as thin
+as matchsticks, but not very chunky. Again, this is tricky, particularly
+because parsnips vary so wildly in girth. Typically, after peeling, I tend to
+half or third them lengthwise, to get consistently long chunks. Then I'll
+halve, quarter, sixth or ninth the chunks vertically, depending on their girth.
+
+Any way, I wind up with a pile of thin(nish) shards of parsnip. I dump them in
+a roasting dish, add some salt and pepper (just a rough grind for now), then
+add a good glug of oil (Nigella's original recipe called for sunflower oil, but
+I rarely have any kicking around, so I usually substitute for olive oil), and a
+good glug of maple syrup.
+
+I'm happy to let these sit for a while together. I don't think that there's any
+particular marination going on, but equally there's no harm in preparing in
+advance so they're ready to go in the oven.
+
+Likewise with the carrots. Prepare them in much the same way (though perhaps a
+little thicker -- I note that recipes and shops refer to carrots as 'batons'
+rather than 'shards' -- I suspect this is a reflection on the relative cooking
+time) as the parsnips. Chuck them in a suitable roasting dish and add some
+olive oil. This time, I used garlic-infused olive oil. (In fact, through the
+week, I almost finished an entire bottle of the stuff because it was so
+delicious!) One of the secrets to this recipe, though, is fennel seeds.
+
+I frequently get confused by various seed-based flavourings. When I first had
+this dish, I could have sworn it was caraway seeds. And I'm sure there are a
+bunch of herbs/spices that will produce the same effect. What you're looking
+for is an aniseed taste to complement the carrots.
+
+So add some fennel seeds to taste. And some salt & pepper, as usual. They're
+ready to roast when the time is right.
+
+Finally, the potatoes. There has been something of a family competition about
+roast potatoes. Once it was announced by my mum that my brother in law, Jim,
+made the best ever roast potatoes. This became a challenge. I'm traditionally a
+devotee of Delia, but for Christmas dinner over the past few years, Nigella
+(particularly the first chapter of 'Feast') has become my cooking deity.
+
+Her roast potato recipe is fairly straightforward, and is focused around
+getting that crisp outside on the potato. You par-boil the potatoes first, then
+bash them to hell in the pan so that the outsides go fluffy, then coat them in
+semolina. Only then do you roast them in the duck fat in the oven.
+
+Recently, while watching crap television, I osmosed the idea that there's an
+easier way. After par-boiling the potatoes, drain them, stick them back in the
+pan and put a tea towel over the pan. (This is similar to the technique for
+producing lovely, fluffy, rice.) It turns out that this worked phenomenally
+well (and I repeated the experiment several times over the week). I reasoned
+that putting a tea towel over the hot pan was able to retain the heat, while
+dispersing the moisture, meaning that the outside of the potatoes dried out
+nicely.
+
+With everything prepared, it was just a case of sticking the sides in the oven
+at the appropriate time. The maple-roast parsnips and the potatoes just needed
+cooking for the right amount of time which, fortunately, is a fairly wide
+window. The carrots had some 'breakfast' juice (the first recipe I followed
+asked for orange juice, but having tried breakfast juice now -- usually a
+mixture of orange and grapefruit -- it's definitely nicer) to be added. It
+should be added after the carrots have achieved some caramelisation, but before
+they get dry and shrivelled. They then spend long enough in the oven that the
+juice turns into a glaze. Today I had to transfer them to a pan and fry for a
+bit until that happened.
+
+Once the chicken was done, all that remained was the gravy. For a while I was
+worrying about how to create a nice gravy. Then I remembered the chicken stock
+in the fridge. It was destined for the risotto later on the week, but there was
+a lot of it and I'm sure I could spare some.
+
+I used to *really* fear making a roux. When I was a kid, I was taught that you
+thickened things with a bit of corn flour suspended in water. Anything else was
+really risky and bound to wind up with lumps. The Roux method truly is
+terrifying, because at each checkpoint, you do wind up with lumps. And it's
+impossible to believe that it'll work out. (Sometimes it doesn't.)
+
+But I'm getting the hang of it. Equal amounts of butter and plain flour. The
+quantities of each depend on how much sauce you want or how thick you want it.
+Melt the butter in a pan, let it bubble for a bit. Mix in the flour and combine
+it well. Make sure the mixture fries for a couple of minutes -- it helps cook
+the flour. At this stage, it won't necessarily combine so well and it'll seem a
+bit like wet sand. That's OK.
+
+Now chuck in some of the liquid. It'll look ridiculously lumpy for a bit, then
+after continuous mixing will turn into a thick glue. Repeat the process of
+adding liquid and stirring until it looks too thick. You know you're done when
+you keep stirring it and the lumps have gone and it looks about as thick as you
+want it.
+
+In this particular instance, I swapped the butter for the oil/fat mixture that
+has exuded from the chicken while it was cooking. First of all, shift the bird
+to a chopping board to let it rest, covering it with foil to keep in the
+moisture and heat. Now stick the roasting dish back on a burner and start
+scraping away at the caramelised bits. This can be a tricky thing ... if you've
+genuinely burnt stuff, then it'll taste bad, but if you've got it right, that
+will be lovely, juicy caramelised fonds and totally worthy of a gravy.
+
+Chuck in the flour, trying not to burn it to the bottom of the pan, mix
+everything up and cook it for a bit.
+
+I should have been clearer. At this point, I had another pan with some of my
+delicious stock simmering away. I made a slight mistake. Having seen the stock
+in its cold form -- a jelly -- I assumed it was too thick and gluteneous from
+the bones of the chicken and that it needed watering down to turn into usable
+stock. This turned out to be rubbish and meant my finished gravy was a bit
+tasteless until I boiled off the water...
+
+So, I added the stock to the roux until I had a nice consistency of gravy. I
+got my taste-tester to affirm that it was a bit watery, and boiled it off for a
+bit (and added a little Worcester Sauce, just for good measure).
+
+That was pretty much it. I convinced Annabel to carve the turkey, because she
+has a degree in biology and a natural affinity towards dissection, and served
+it all up.
+
+It's somewhat gratifying to have somebody, who's had a few roast chicken
+dinners, to come up to you at the end of the meal and say, "that's the best
+Sunday lunch I've ever had." :-D
+
 
 ## Monday, 4th November
 
@@ -210,14 +372,14 @@ The pancakes were served naked, along with a pile of bacon in the middle of the
 table. People chose to pair the pancakes with bacon and maple syrup, or
 blueberries and creme fraiche. Either way, they were well received.
 
-### Spinach and Ricotta Canneloni
+### Spinach and Ricotta cannelloni
 
 After breakfast, I got stuck straight into preparing for dinner. I was
 following the mantra of taking my time and enjoying it, and there were a couple
 of processes here I wasn't 100% comfortable with.
 
-I'm sure the last time I made canneloni, I blanched lasagne sheets so they
-could be curved to make the canneloni tubes. This time it was much simpler: it
+I'm sure the last time I made cannelloni, I blanched lasagne sheets so they
+could be curved to make the cannelloni tubes. This time it was much simpler: it
 turns out that Tesco sell ready made tubes. Winning. I spent a bit of time
 lining up the tubes in various ovenproof dishes to see what I could use to cook
 it. The biggest dish fitted eighteen tubes, and I had twenty four. That's OK, I
@@ -269,7 +431,7 @@ handful at a time, keeping the juice from it (because it's buttery, garlicky,
 spinach-ey deliciousness). Chop up the spinach finely. (I wish I'd paid more
 attention to this as a wondered why I'd bother chopping this mushy spinach into
 tiny bits. As it turns out, I suspect it would have made it so much easier to
-fill the canneloni.) Then combine with the ricotta cheese and add back the
+fill the cannelloni.) Then combine with the ricotta cheese and add back the
 liquid. Give it a good mix, then taste and season.
 
 This is where it gets interesting. How do I fill twenty four tubes with this
@@ -284,7 +446,7 @@ that turns out to be a disaster! Eventually, I came up with the following:
 
 This worked reasonably well. I'd pipe some filling into each tube, then use a
 knife to make sure it was properly pushed down (I didn't really want air bubble
-filling half the canneloni!). Next time, I'll be more careful about snipping
+filling half the cannelloni!). Next time, I'll be more careful about snipping
 the outlet to be smaller than the tubes, and I'll make sure the spinach is
 chopped finely enough to pass through it easily.
 
@@ -295,12 +457,12 @@ Stick the piping bag in one end, hold it vaguely horizontally, and pipe in some
 of the mixture. You can see if filling it, it's pretty straightforward and it's
 easy to control. So, live and learn.
 
-Now we've got a tomato sauce as a base, and twenty four canneloni tubes stuffed
+Now we've got a tomato sauce as a base, and twenty four cannelloni tubes stuffed
 with spinach and ricotta mixture. Time to combine!
 
 The target oven dishes get a layer of the tomato sauce. I think the large dish
-got too much tomato sauce -- it wound up drowning the canneloni -- but we shall
-see. Then I popped in the filled canneloni. In the large dish, it wound up
+got too much tomato sauce -- it wound up drowning the cannelloni -- but we shall
+see. Then I popped in the filled cannelloni. In the large dish, it wound up
 looking like ... well, I thought it looked like the backbone of a fish. Annabel
 thought it looked like something out of Alien. The leftovers that didn't fit
 wound up in the smaller dish.
@@ -308,7 +470,7 @@ wound up in the smaller dish.
 And that, unfortunately, is how I left it, on the work surface, waiting for the
 finishing touches, while I disappeared off for a walk.
 
-When I came back -- albeit four hours later -- the canneloni had started to
+When I came back -- albeit four hours later -- the cannelloni had started to
 dry, and curl, and separate. Which doesn't look so good. So I decided to cover
 it in the white sauce quickly to prevent it from drying any further.
 
@@ -327,7 +489,7 @@ salt/pepper.
 Finally, I poured the white sauce over the two dishes. There was enough to
 cover both, completely. That's not entirely what I was aiming for -- I'd been
 hoping a bit of pasta would poke through and get crispy -- but we shall see.
-Finally, I topped it with some mozarrella cheese and a bit more pepper. Now
+Finally, I topped it with some mozzarella cheese and a bit more pepper. Now
 it's just a case of chucking it in the oven, letting it brown, making a salad
 and hoping for the best!
 
@@ -335,7 +497,7 @@ I feel like I've spent most of the day cooking. Or, at least, that cooking has
 been the more rewarding, least stressful part of the day. When I'm in this
 'mode', I really enjoy cooking alone, and I get really frustrated when people
 offer to help or, much, much worse still, I wind up with an audience. When I'm
-trying a new technique -- say piping filling in to canneloni tubes -- and there
+trying a new technique -- say piping filling in to cannelloni tubes -- and there
 are two kids asking what I'm doing, asking if they can have a taste, asking if
 they can help, the bubble bursts a bit. It turns into a very different
 activity.
@@ -344,4 +506,4 @@ I may have been a bit unsubtly grumpy about this...
 
 ## Sunday, 10th November
 
-And maybe boiled ham for lunch before we all leave?
+Today was an ... interesting day. I was keen to bury myself in the kitchen because I was having a bad day and I really wanted to keep out of the road of other people, so I didn't spoil the atmosphere.

@@ -5,11 +5,22 @@ title: Diff
 How often do I spend time looking at the output of `diff`? Going by the shell
 history on this laptop, which does some duplicate elimination, out of the last
 8,800 commands I've typed, 98 of them have been to invoke a diff tool of some
-variety (85 of which were `gd` -- my alias for `git diff` -- or `gdc` -- my
-alias for `git diff --cached` to perform a final review before committing).
-That's not counting the times I use other tools, like vim support for
-manipulating diffs, or interactively adding stuff to git's index, visual diff
-tools, or time spent looking at pull requests in GitHub.
+variety. These broke down into three main divisions:
+
+* `gd` which is my shortcut for `git diff`. This is most often when I'm
+  reviewing in-progress code to see what I've changed so far.
+
+* `gdc` which is my short cut for `git diff --cached`. This is me reviewing the
+  changes that I've staged in git's index, almost always as a final code review
+  before committing it.
+
+* Others, like looking at the differences between branches, tags, individual
+  commits, or using `diff` entirely outside the scope of git.
+
+The majority were associated with git, since that's the version control system
+I put most of my life into.  That's not counting the times I use other tools,
+like vim support for manipulating diffs, or interactively adding stuff to git's
+index, visual diff tools, or time spent looking at pull requests in GitHub.
 
 I think it's safe to say I spend quite a bit of time messing around with diffs.
 
@@ -23,7 +34,7 @@ So I thought I should find out.
 
 At a high level, a "diff" is a mechanism for representing the things that are
 different between two different pieces of information. In my case, it's almost
-always the different between two different piles of text, and most of the time
+always the changes between two different piles of text, and most of the time
 the text is structured such that it's heavily line-oriented (i.e. it makes
 sense to express changes as being line by line).
 
@@ -119,9 +130,9 @@ why we use version control systems all the time. Amongst other things, we can:
   just questions about "what changed?" but about when it was changed, who
   changed it and, depending on the quality of that extra information, why that
   change was made. This can often be a powerful tool in understanding a system
-  but understanding the context in which is was created/changed.
+  by understanding the context in which is was created/changed.
 
-The thing is that, despite relying on this tool very heavily for a couple of
+The thing is that, despite relying on this tool very heavily for nearly two
 decades now, I have never considered how it works. In general, I like to know
 how my tools work, so I figured it was time to learn. This was prompted by an
 accidental reading of the git man pages, where it noted that there were several
@@ -143,3 +154,211 @@ information on what these diff algorithms are, and why I might choose one over
 another. That's what piqued my interest. How does the basic, greedy, algorithm
 work? What does the minimal version do to get a smaller diff? What's the
 patience algorithm? And what are low-occurrence common elements?
+
+(Of course, in the meantime I've selected the 'histogram' algorithm, since it
+sounds like the one with all the bells and whistles. It's not like my CPU is
+busy doing anything else!)
+
+## Longest common subsequence
+
+All the diff algorithms I've seen so far are variations, tweaks and
+optimisations on the basic issue: searching for the longest common subsequence
+between two pieces of information. It's probably a good idea to start there,
+then.
+
+Wikipedia tells us that the Longest common subsequence problem is:
+
+> The longest common subsequence (LCS) problem is to find the longest
+> subsequence common to all sequences in a set of sequences (often just two).
+
+I'm happy to accept that it's just two subsequences we're dealing with for
+this, since my use case is usually to find the differences between two versions
+of a file. So let's try and restate it slightly:
+
+> The longest common subsequence (LCS) problem is to find the longest
+> subsequence which is common to two sequences.
+
+The word 'sequence' suggests to me that ordering is significant. So we're
+looking for the longest common ordered list when is contained in both ordered
+lists.
+
+(I often approach Wikipedia articles like this; taking what they say in some
+precise language and try to break it down into something I understand, which
+has a close enough meaning to my understanding.)
+
+The article notes that this is different from the longest common substring
+problem, which is finding the longest common sequence of consecutive terms. So
+a subsequence needn't consist of consecutive symbols. I think we've enough
+information here to come up with an example. Take the degenerate case:
+
+* The first subsequence is `{ A, B, C }`.
+
+* The second subsequence is `{ A, B, C }`.
+
+I think we can agree that the longest common subsequence is also `{ A, B, C }`
+since they're identical. How about:
+
+* `{ A, B, C }`; vs
+
+* `{ B, C, D }`?
+
+Again not controversial, the common subsequence is `{ B, C }`. Here's where
+substrings and subsequences start to differ, though. Take:
+
+* `{ A, B, C, D, E }`; and
+
+* `{ A, C, E }`.
+
+The longest common subsequence is `{ A, C, E }`. Of course, there can be
+several subsequences that have the same (longest) length:
+
+* `{ A, B, C }`; and
+
+* `{ A, C, B }`
+
+have a longest common subsequence of both `{ A, B }` and `{ A, C }`. In terms
+of correctness for representing the differences between two versions of a file,
+it doesn't matter which subsequence is chosen. However, semantically it can
+make a huge difference to representing the human-readable meaning behind the
+changes, as we'll see later. So often the problem is really to find *all* the
+longest common subsequences for a set of sequences.
+
+You might be getting the idea that this is **hard** to compute. And you're
+right. In the general case, for an arbitrary number of input sequences, the
+problem is NP-complete. However, if we reduce it to a known set of sequences
+(and we're happy with two sequences, as we've said above), and we've just
+searching for a single solution, then it gets a bit more manageable.
+
+In terms of building a solution to the problem, there are there are three
+useful things to note:
+
+* The degenerate case: if either of the subsequences is empty, then the common
+  subsequence is obviously empty.
+
+* Two recursive cases:
+
+  * If both sequences end with the same set of terms, then the LCS is that of
+    the LCS of the two subsequences without the common terms, plus the common
+    terms.
+
+  * If the sequences don't end with the same terms, then one of those terms
+    doesn't exist in the longest common subsequence. So the LCS is either that
+    of the LCS of the two strings with the last term of one or t'other removed.
+
+It's sometimes more complicated to express an algorithm in words than it is in
+code. Here's a naive implementation in Ruby:
+
+{% highlight ruby %}
+def longest(a, b)
+  a.size > b.size ? a : b
+end
+
+def lcs(a, b)
+  if a.empty? || b.empty?
+    []
+  elsif a[-1] == b[-1]
+    lcs(a[0..-2], b[0..-2]) + [ a[-1] ]
+  else
+    longest(lcs(a[0..-2], b), lcs(a, b[0..-2]))
+  end
+end
+{% endhighlight %}
+
+That's clearer, isn't it? :) I'm sure in other functional languages you'd get a
+relatively performant implementation by reversing the inputs, allowing you to
+take the `car` and `cdr` of the sequences as you worked through the input. What
+can I say? Ruby is my hammer.
+
+So, that's all terribly interesting, but what's the longest *common*
+subsequence got to do with representing the differences? It's exactly the
+opposite solution to what we're looking for; we want to find all the bits that
+are different, not all the bits that are the same! For that, let's try a
+slightly different tack. First of all, create a table that contains the lengths
+of all the common subsequences between two sequences:
+
+{% highlight ruby %}
+def common_subsequence_lengths(as, bs)
+  lengths = Array.new(as.length + 1) { Array.new(bs.length + 1, 0) }
+
+  as.each_with_index do |a, i|
+    bs.each_with_index do |b, j|
+      if a == b
+        lengths[i + 1][j + 1] = lengths[i][j] + 1
+      else
+        lengths[i + 1][j + 1] = [lengths[i + 1][j], lengths [i][j + 1]].max
+      end
+    end
+  end
+
+  lengths
+end
+{% endhighlight %}
+
+**FIXME: This is pretty much a transliteration of the Wikipedia article's
+algorithm. I can't help feeling there's a more idiomatic way of representing it
+in Ruby.**
+
+Now we have a note of all the lengths of all the common subsequences of two
+strings, we can find the longest common subsequence's length by looking at the
+bottom right of the table:
+
+{% highlight ruby %}
+def lcs_length(as, bs)
+  common_subsequence_lengths(as, bs)[-1][-1]
+end
+{% endhighlight %}
+
+We can use the table to find a longest common subsequence, still. First of all,
+let's define a couple of handy methods on `Array` to make it clear(ish) what
+we're doing:
+
+{% highlight ruby %}
+class Array
+  def car
+    self[-1]
+  end
+
+  def cdr
+    self[0..-2]
+  end
+end
+{% endhighlight %}
+
+
+{% highlight ruby %}
+def lcs(as, bs, lengths = lcs_lengths(as, bs))
+  if as.empty? || bs.empty?
+    []
+  elsif as.car == bs.car
+    lcs(as.cdr, bs.cdr, lengths) + [ as.car ]
+  else
+    if lengths[-1][-2] > lengths[-2][-1]
+      lcs(as, bs.cdr, lengths.cdr)
+    else
+      lcs(as.cdr, bs, lengths.map { |xs| xs.cdr })
+    end
+  end
+end
+{% endhighlight %}
+
+**FIXME: Still not much like the Ruby I know and love.**
+
+This will happily return one of the longest common subsequences, which puts us
+back where we were. But with this table of lengths of subsequences, we've got
+enough information to trivially construct a diff:
+
+{% highlight ruby %}
+def diff(as, bs, lengths = lcs_lengths(as, bs))
+end
+{% endhighlight %}
+
+**FIXME: Irritatingly, I've had enough beer that I can't make this one work
+just now!**
+
+## Hunt-McIlroy Algorithm
+
+It turns out that the first version of the `diff` program was was written by
+James W. Hunt, along with Douglas McIlroy in 1976, and was the subject of a
+paper entitled, "An algorithm for differential file comparison". It's an
+improvement on the longest common subsequence solution so it's faster and uses
+less memory.

@@ -294,15 +294,91 @@ It's somewhat gratifying to have somebody, who's had a few roast chicken
 dinners, to come up to you at the end of the meal and say, "that's the best
 Sunday lunch I've ever had." :-D
 
-
 ## Monday, 4th November
 
-Just the core family. I think today was Haggis, neeps & tatties with the whisky
-sauce.
+> Back to just the core family. Today was Haggis, neeps & tatties with the
+> whisky sauce.
+
+Originally, today was supposed to involve pumpkin carving, to allow for risotto
+in the evening. This turned out to be a theme for most of the week. While I was
+out writing, I got a message saying the popular vote was for haggis, neeps and
+tatties for dinner. Nice and easy. This was one of my "throwaway" meals for the
+week, in that it required very little effort.
+
+The usual tack is to do mashed potatoes. However, since I had duck fat still
+sitting in a roasting dish from the previous day's cooking, it seemed crazy to
+miss the opportunity. Roast potatoes again. I was tempted to mash the roast
+potatoes afterwards to get a crunchy mash, but I was talked out of that. Next
+time. So, potatoes were the same as yesterday.
+
+I used the neep as an example of why I keep my knives sharp and in good
+condition. I took an equivalent knife from the supply in the kitchen and tried
+to chop the neep. It was ... hard work. In comparison, using my own knife, it
+was like slicing through butter. I love my knives.
+
+I boiled the chopped up neep for a while (about 20 minutes or so) until it was
+soft enough to mash. I mashed it with a chunk of butter and plenty of salt &
+pepper. I'd have preferred to use white pepper, but I wasn't at home so black
+pepper did OK.
+
+For the haggis itself, we had two of them. One was a proper haggis, and one was
+vegetarian. I wrapped each in foil, put in a dish, added a little water as a
+bath, and cooked in the oven for about 45 minutes. When they were done, I
+removed the foil and their outer wrapping (plastic, sadly, not a sheep's
+stomach, in both cases), and dumped them into a dish. I was using a single
+large dish to serve things, so I formed each haggis into opposing quadrants.
+(If I ever get really into food dye, I should think about creating something
+similar in the shape of the saltire.)
+
+So the end dish was served up with the two haggis in opposite quadrants, the
+neeps in one corner and the roast potatoes in the remaining space. All that was
+left was some sauce.
+
+There was still loads of rich, delicious, chicken gravy left over from the
+previous night. I had a cunning idea. How about using that as a basis for this
+whisky sauce I hadn't yet thought through? So I reheated and tasted the chicken
+gravy. Yeah, it was still tasty. And then I added some Isle of Jura Whisky. Oh,
+my, that was good. And a little more, let it bubble off a bit. Yeah, that's
+what I was after.
+
+I must admit, I was really pleased with this meal. The individual components
+were good (that whisky sauce was lucky but delicious!) and they worked well
+together. Again, well received, which is as much as a cook can ask. I got a lot
+of practice accepting complements this week.
 
 ## Tuesday, 5th November
 
-Just the core family. Today was fish pie.
+> Just the core family; today was fish pie.
+
+Ah, fish pie. This, or <something else fishy> seems to be my piece de
+resistance, certainly amongst one half of the family. I really do love fish
+pie. The combination of delicious smoky fish with eggs, the piquant taste of
+capers (and cornichons, as this recipe calls for), a white sauce, and mashed
+potatoes. To be fair, it's got the same component parts as fish, chips &
+tartare sauce, but it's a touch more elegant, right?
+
+For a long time, I've followed a single recipe for fish pie diligently. It's
+from a Scottish chef, and it's pretty good. It's got the capers, and it's got
+the fish (obviously), and it's got eggs, and it's got mash on top. Lots of the
+important ingredients.
+
+Inevitably, when I made fish pie, I think, "cod". Because I love the flakiness
+and taste of cod. It's a thing for me. However, inevitably, my wife, Annabel,
+goes shopping for the ingredients. And cod is terribly expensive, and Annabel
+doesn't like smoked fish much, so we wind up with a compromise. I've learned to
+live with these things. Putting cod in a fish pie is probably a waste, anyway.
+
+Today's fish pie has three packs of "fish pie mix" (salmon, smoked haddock and
+unsmoked haddock, I think) to chuck into the mix.
+
+I start by poaching the fish. The idea, as I understand it, it to get all the
+components so they're cooked, and after the final assembly, it's just a case of
+reheating and browning. In a 180 degree oven, I poach the fish in about half a
+litre of whole milk, and a sploosh (about 200ml, which was what was left in the
+bottle) of white wine. With that, I've added a small handful of peppercorns and
+bay leaves. (If you're serving to, say, customers, you might want to count the
+peppercorns and bay leaves in and out so you don't accidentally blow someone's
+head off.)
 
 ## Wednesday, 6th November
 

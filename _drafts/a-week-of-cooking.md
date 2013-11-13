@@ -350,19 +350,25 @@ of practice accepting complements this week.
 
 > Just the core family; today was fish pie.
 
-Ah, fish pie. This, or <something else fishy> seems to be my piece de
-resistance, certainly amongst one half of the family. I really do love fish
-pie. The combination of delicious smoky fish with eggs, the piquant taste of
-capers (and cornichons, as this recipe calls for), a white sauce, and mashed
-potatoes. To be fair, it's got the same component parts as fish, chips &
-tartare sauce, but it's a touch more elegant, right?
+Ah, fish pie. This, or seafood chowder seems to be my piece de resistance,
+certainly amongst one half of the family. I really do love fish pie. The
+combination of delicious smoky fish with eggs, the piquant taste of capers (and
+cornichons, as this recipe calls for), a white sauce, and mashed potatoes. To
+be fair, it's got the same component parts as fish, chips & tartare sauce, but
+it's a touch more elegant, right?
 
 For a long time, I've followed a single recipe for fish pie diligently. It's
-from a Scottish chef, and it's pretty good. It's got the capers, and it's got
-the fish (obviously), and it's got eggs, and it's got mash on top. Lots of the
-important ingredients.
+from a Scottish chef, Sue Lawrence, and it's pretty good. It's got the capers,
+and it's got the fish (obviously), and it's got eggs, and it's got mash on top.
+Lots of the important ingredients.
 
-Inevitably, when I made fish pie, I think, "cod". Because I love the flakiness
+Last time I made it, though, I was away from home and didn't have my trusty
+recipe book. A bit of Googling helped me figure out the approximate proportions
+(this is what always worries me about improvising -- am I going to get the
+ratios right?), and inspired me to add cornichons, too. This time I went a step
+further and added white wine, too.
+
+Invariably, when I make fish pie, I think, "cod". Because I love the flakiness
 and taste of cod. It's a thing for me. However, inevitably, my wife, Annabel,
 goes shopping for the ingredients. And cod is terribly expensive, and Annabel
 doesn't like smoked fish much, so we wind up with a compromise. I've learned to
@@ -371,14 +377,74 @@ live with these things. Putting cod in a fish pie is probably a waste, anyway.
 Today's fish pie has three packs of "fish pie mix" (salmon, smoked haddock and
 unsmoked haddock, I think) to chuck into the mix.
 
-I start by poaching the fish. The idea, as I understand it, it to get all the
-components so they're cooked, and after the final assembly, it's just a case of
-reheating and browning. In a 180 degree oven, I poach the fish in about half a
-litre of whole milk, and a sploosh (about 200ml, which was what was left in the
-bottle) of white wine. With that, I've added a small handful of peppercorns and
-bay leaves. (If you're serving to, say, customers, you might want to count the
-peppercorns and bay leaves in and out so you don't accidentally blow someone's
-head off.)
+In an effort to be prepared, I make the mash at lunchtime, before heading out
+for an afternoon walk. It's pretty straightforward. Peel about a kilogram of
+potatoes and chop them up such that the boil efficiently. Stick them in a pan
+of cold, salted, water, cover, bring to the boil and let them simmer away
+until nice and soft (about 20-25 minutes in my case). Drain well and put back
+in the pan with a tea towel over them for a few minutes.
+
+I had a bit of an epiphany about putting tea towels over cooked food this week.
+It's to help them dry out a bit (I kind of knew that). But it works by
+retaining more of the heat, while still allowing the moisture to escape
+into/through the tea towel. Cunning.
+
+After they'd rested for a few minutes (probably about 10 minutes -- I was
+chatting with John and eating lunch while all this was happening), I put in a
+dollop of butter (about 50g), two tablespoons of creme fraiche and some salt &
+pepper. I mashed it until I had a nice, smooth, consistency, then stirred in
+about 200g of cheese (a mixture of cheddar and parmesan).
+
+After recovering it with the tea towel, I left it and went out for an afternoon
+stroll that turned into an 11 mile walk with a pint or two as a reward. :)
+
+In the evening, I start by poaching the fish. The idea, as I understand it, it
+to get all the components so they're cooked, and after the final assembly, it's
+just a case of reheating and browning. In a 180 degree oven, I poach the fish
+in about half a litre of whole milk, and a sploosh (about 200ml, which was what
+was left in the bottle) of white wine. To that, I've added a small handful of
+peppercorns and bay leaves. (If you're serving to, say, customers, you might
+want to count the peppercorns and bay leaves in and out so you don't
+accidentally blow someone's head off.)
+
+That sat in the oven for about 10 minutes, until the fish was cooked. I removed
+the fish from the poaching liquid and flaked it into the oven dish I'd be
+cooking and serving it in. Then I strained the poaching liquid -- which was now
+a warm broth of milk, wine and fishiness -- into a jug to use for the white
+sauce. This is a good time to count the left over bay leaves and peppercorns,
+just to make sure none escaped with the fish!
+
+To the fish, I added a generous helping of capers -- I put in about 3 heaped
+teaspoons -- about 6 cornichons chopped so they're roughly the same size as the
+capers, and 3 boiled eggs, sliced. I didn't bother stirring them in at this
+stage, as I don't want to break up the fish too much. I like to get big flakes
+of fish in the finished pie, rather than an unidentifiable mush.
+
+The last process involved is making up a white sauce. As I've said before, the
+roux method always terrifies me, but it rarely lets me down. So I melted 50g of
+butter in a pan, let it bubble away for a minute, then add 50g of flour. Next
+time I'll remember to check my ratios of flour to liquid, as the end sauce
+wound up a little runnier than I wanted (probably because of the additional
+liquid from the white wine I snuck in).
+
+Mix it all around, and let the flour cook for a couple of minutes, then start
+gradually adding the poaching liquid and stirring as usual until I've got a
+nice white sauce. I tasted and seasoned the sauce with salt and pepper at this
+point. Then insisted that Annabel taste it, too, since I thought it was
+absolutely delicious!
+
+Just the final assembly now. I poured the white sauce into the oven dish with
+the fish, and mixed it around so the ingredients were well covered with sauce.
+Since the fish is already cooked, I was safe to have another taste, just to be
+sure it was all OK. Then dollop the potato on top, first of all smoothing it
+out to seal in the filling, then fluffing it up so that it crisps and browns
+nicely in the oven. Working with cold mash made this slightly trickier. If I'm
+preparing the mash in advance again next time, I might try and heat it a little
+before applying it as a topping.
+
+The end result was put in the oven until it browned (or, more accurately, until
+the kids fell asleep) which was about 40 minutes, and was served with a few
+asparagus spears we found in the fridge.
 
 ## Wednesday, 6th November
 

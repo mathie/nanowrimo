@@ -507,6 +507,37 @@ There are a few advantages to this:
   gotten lost in some code. (In other words, when the 6pm tasks show up as
   available and I'm not yet on a train home, I know my dinner is in the cat!)
 
+## Unplanned, but urgent
+
+Sometimes things crop up during the day. Servers die, causing widespread panic,
+fire fighting and an end to the productive day. Clients phone up (sometimes not
+the one I'm supposed to be working for that day with "one little thing"). And
+sometimes I just get distracted. I wind up seeing another bit of code near
+where I'm working that's crazy and needs 'refactoring' out of existence (what
+was 6-months-ago me thinking?!), or I have a shiny new idea and spend 20
+minutes writing about it.
+
+It's inevitable, but I'd like to track these in some way. If there's something
+I've just done, but didn't plan to do today, I'll use the Quick Entry tool in
+OmniFocus to record it. I'll note that I started it today, that it's already
+complete, how long I spent on it and that it was unplanned. I'll assign it to a
+context and project (there's almost always a single action 'current' list for
+each of my roles, which is where this sort of thing gets placed.) And I'll
+immediately mark it as complete. There are two reasons why I do this:
+
+* I get some sense that I've achieved something, even on the days when my
+  hare-brained mind has wandered off on twenty different tangents. Chances are
+  some of these tangents will have future value -- maybe learning a new tool,
+  or improving my productivity in vim -- even if they didn't contribute to my
+  deadlines today.
+
+* I get some feedback on the time I'm spending on planned vs unplanned
+  activities. Do I need to introduce more slack into my system to allow for
+  them while still getting my commitments completed? Could I better manage and
+  reduce the impact of interruptions?
+
+## Reporting
+
 ## Trusted System
 
 I hope this gives you an insight into how I operate my trusted system,

@@ -235,6 +235,8 @@ manageable, set of projects that I am committing to working on in the next week
 (or two), and there's a place to keep the projects that are somewhere in
 between, as they're fleshed out, prioritised and committed to.
 
+### Applying to OmniFocus
+
 So, let's try applying this to my OmniFocus trusted system. For each top level
 role (or, in the case of work, for each client), I have the projects I'm
 actively working on at the top level of that group, then I have a sub-group for
@@ -276,6 +278,8 @@ represent it -- because there's usually no dependencies amongst the items --
 and I mark it as paused, so none of the items in it show up as available. I can
 still chuck projects in there, whether I've fleshed them out or not.
 
+### Focus
+
 There are distinct advantages to this layout. Mostly, it's about focus. When
 doing my daily planning and review sessions, I do the collection and processing
 as usual, but when I'm planning my priorities for the day, I only need to
@@ -284,14 +288,7 @@ much smaller scope. On the flip side, I don't ever contemplate keeping
 something *out* of my trusted system because I don't want to deal with it just
 now.
 
-The weekly review is the time to think more strategically, to review what I'm
-currently working on, the backlog, and the icebox for each role. As well as
-examining each project to verify that it has an achievable next action, I'm
-reflecting on priorities. Am I currently working on the most important thing?
-Should my priorities be adjusted? Having completed a bunch of 'current'
-projects, what am I going to move up from the backlog. What's going to move
-from the icebox to the backlog and be fleshed out more? What's going to be
-relegated back to the icebox, or dropped entirely?
+### Scheduled Projects
 
 I haven't yet worked out a good solution to scheduled projects. For example, I
 have a recurring project each quarter to submit Rubaidh's VAT return. It's
@@ -305,3 +302,212 @@ I've taken to compromising. Scheduled projects get moved into the backlog group
 when they're soon to be current, and get moved into current when they actually
 become available. Then, when they're completed, the recurred project gets
 chucked back in the icebox. It's not perfect, but it'll do for now.
+
+## Weekly review
+
+The weekly review is the time to think more strategically, to review what I'm
+currently working on, the backlog, and the icebox for each role. As well as
+examining each project to verify that it has an achievable next action, I'm
+reflecting on priorities. Am I currently working on the most important thing?
+Should my priorities be adjusted? Having completed a bunch of 'current'
+projects, what am I going to move up from the backlog? What's going to move
+from the icebox to the backlog and be fleshed out more? What's going to be
+relegated back to the icebox, or dropped entirely?
+
+After getting fully 'in' to zero -- reviewing all my inboxes, checking that
+nothing has slipped through the cracks (usually receipts I need to enter for
+business expenses, and other bits of paper, as it turns out) -- I review all
+the projects that are 'current' or in the backlog. For each of these projects,
+I'm usually asking myself:
+
+* Is this project still in the right place relative to my current priorities?
+
+* Does a project from the backlog need to be promoted to current? Or is it a
+  project in current that no longer has the same sense of importance, and can
+  be relegated back down to the backlog? If it can be relegated down to the
+  backlog, then I can just move it there and forget about it for the rest of
+  the review.
+
+If the project is still current, then I ask myself:
+
+* Is the next action really the next thing I can be doing to move this project
+  forward? Is it too big? Can I split it up? Do the subsequent actions
+  currently seem reasonable?
+
+* If the project has stalled (i.e. I haven't made any progress on it since the
+  last review), why? Is there a hidden next action? Am I blocked on something
+  external? Is it not really a priority? Or am I avoiding it for some reason?
+  (And if so, how can I help myself to get back on track?)
+
+For the most part, I can constrain the detailed review to the current and
+backlog items. I scan the icebox for each role for two reasons:
+
+* Checking to see if there's anything that would like to be promoted to the
+  backlog -- something I intend to get done in a couple of weeks' time -- or
+  all the way up to current (it's getting attention in the next week). At this
+  point, I then need to treat it in the same way as I've outlined above.
+
+* Checking for things that are no longer relevant. Since relevancy is a
+  subjective idea, and my subjective opinions vary over time, I've recently
+  started capturing items that I remove from the icebox on a page in Evernote.
+  It's a catalogue of ideas that I once thought were important, then discarded
+  as not being a priority. The hope is, that way, I don't keep having the same
+  ideas, and keep failing to execute on them. I can either note:
+
+  * this is a bad idea, and I remember why, because I've written it down; or
+
+  * this idea keeps reoccurring. Perhaps there's something to it after all?
+
+That way, I'm regularly reviewing my crazy ideas to see that they're still
+relevant, but still not important.
+
+Then there's all this nonsense about being bold and creative proscribed in
+David Allen's book. I tend to be neither bold, nor creative, when it's demanded
+of me. These things happen more spontaneously...
+
+## Limits
+
+There's a notion from the Kanban software development methodology (which I
+assume comes from 'Level the production' in Toyota's original Kanban
+implementation). It's about limiting the work in progress at each stage of a
+process. For example, in a software development scenario, you can limit the
+number of features that are concurrently in development, or at QA, or waiting
+to be activated in production. These limits create back-pressure in the system
+and ensure the overall process doesn't wind up with a build up of items at one
+stage in the process. Usually, this will help to identify constraints within a
+system, but I like to use it for a different reason: to manage my sanity.
+
+If I have a lot of plates all spinning at once, I tend to spend an appreciable
+amount of time context switching between them, or working on the project that
+isn't the most important thing right now, or just plain procrastinating because
+I've got too much to do.
+
+I also have a bad habit of not finishing projects, whether by putting the last
+lick of paint on something, or actually getting a new feature into production,
+or fixing that last wee bug, or redrafting and publishing a blog post, I
+struggle to finish work. There are three reasons that I'm aware of in my psyche
+for this:
+
+* Interest. Once I've solved a problem in my head, it's, well, it's a solved
+  problem, isn't it? Communicating the details of the solution, and
+  transforming it into robust, working code that's fit for production is
+  relatively dull. (I want minions to do my bidding!)
+
+* Closure. Apparently, the Perceiving part of my INFP personality type doesn't
+  like to be pushed into a corner, to make decisions, to close off other
+  opportunities, to commit. I was a little sceptical of this, but I suppose I'm
+  only moderately 'perceiving', and it does seem to fit, so...
+
+* Fear. What if I deliver something as finished and it's *wrong* or *not good
+  enough*? What if I'm ridiculed for it? What if people judge me (poorly) on
+  the quality of what I've built? That's my version of perfectionism.
+
+I need help to get projects across the finish line. So I'm playing around with
+work-in-progress (WIP) limits. For each role in my life, I can only have so
+many projects in current. The size of the project doesn't really matter -- I
+can always pull another from the top of the backlog if I run out of projects in
+current -- but I'm only allowed a fixed maximum of projects that are currently
+active. In order to start on something new, I need to complete an existing
+project, or make an active decision to drop/defer it.
+
+The number of WIP projects varies depending on the role, but since I'm only one
+person, I try to keep to a soft limit of two and a hard limit of three for each
+role. (There's both a soft and a hard limit, so that I can accommodate
+'emergencies' in each role.)
+
+This is the one part of the system that so far is proving hard to keep to. I
+have one particular client who is *way* further up the 'Perceiving' scale than
+me, and I take on the balancing 'Judging' role there, frantically trying to
+reduce the work in progress and drive things into production. But I have a hard
+time taking on that role, so we do have ... one or two more projects in
+progress than is strictly sensible.
+
+## What's the next action?
+
+This is all well and good. I have a trusted system which contains everything
+that I currently think I would like to do. And it's organised in a manageable
+way so as not to seem utterly daunting. How do I actually decide what to do
+next?
+
+There are, more often than I'd like, still tasks hanging over from yesterday
+which I haven't completed for one reason or another. The first task is to
+reassess them. Am I definitely going to do them today? In which case, I change
+the start date to 'Today' and they become part of today's todo list. If not,
+then I remove the start date entirely and allow them to be reassessed as part
+of my regular review process.
+
+Then it comes down to two things:
+
+* Which role(s) am I fulfilling today? Which hat am I wearing today? I'll
+  typically arrange my diary so that I'm dedicating full days to client work,
+  and I normally work this out in advance for the month, so at work, I know
+  which role I'm focusing on.
+
+* What's current in that role's project list?
+
+In the morning's planning session, I will take a set of actions that I think I
+can accomplish today from those project(s), and I'll set their 'start date' to
+being today. (Helpfully, OmniFocus lets you enter "Today" as a start time and
+interprets it appropriately. More on that below.)
+
+There are also other tasks. Things like posting letters, getting a haircut,
+catching up with business finances, software maintenance, hardware maintenance,
+remembering to take my dried frog pills. These tend to be reoccurring tasks, so
+they show up automatically in today.
+
+And there's usually one or two other little tasks that I'd like to get done
+sometime through the day -- writing my NaNoWriMo words count, for example --
+which get a start date of 'today'.
+
+Now I have a list of items that I am committed to achieving today, and I have a
+perspective in OmniFocus which shows me those items. However, it lacks some
+order. Basically, the order in the list reflects the order of the projects in
+the project tree of OmniFocus. This isn't necessarily optimal, and I've worked
+around it a little by realising the start date is actually a time stamp. When
+you order the perspective by start date, it will also order by start time.
+
+Anything I've given a start date of 'Today' will get a start time of midnight
+today and so will show up at the head of the list. I've exploited this to help
+me roughly order my list of priorities for the day:
+
+* Anything that I ought to think about before I go into work in the morning
+  gets a start time of 6am. OmniFocus helpfully allows you to type in `6a`,
+  which expands to `6am today`. Since I'm rarely up before 6am, these are
+  usually when I'm scheduling in advance, so `6a tomorrow` gets them to show up
+  at the appropriate time. Most often, these are recurring items ('remember to
+  take your dried frog pills with breakfast').
+
+* Anything that I need to deal with absolutely first thing when I get into the
+  office (panicked emails from a client at 2am) gets a start time of 8am.
+
+* Regular work for the day usually gets a start time of `9a`, but if I'm
+  looking to order the list a bit more granularly, I'll play around with that a
+  bit.
+
+* Anything I'm looking to do at lunch time (errands, getting a haircut, posting
+  letters) gets a start time of `12p`.
+
+* Things that I want to do at the tail end of the day -- sometimes small tasks
+  when I'm tired, or reviews -- get a time of `4p`.
+
+* Finally, anything I want to do at home in the evening gets a time of `6p`.
+
+There are a few advantages to this:
+
+* My today view gets a semblance of order and of priority. I've got planning,
+  urgent, general acting, lunch break things, review and evening tasks. I
+  should be able to work through the list more or less in order.
+
+* If the today view is daunting, I can switch to showing only 'available'
+  tasks, which will hide the items that I don't intend to do until later in the
+  day. They'll show up when they're available.
+
+* When a new set of tasks becomes available, I'll get a Growl notification
+  about it. This can help to remind me what stage of the day I'm at, if I've
+  gotten lost in some code. (In other words, when the 6pm tasks show up as
+  available and I'm not yet on a train home, I know my dinner is in the cat!)
+
+## Trusted System
+
+I hope this gives you an insight into how I operate my trusted system,
+capturing, processing, organising and doing things.

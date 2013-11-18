@@ -238,6 +238,49 @@ a policy to servers, storage and switches, then allow the machines themselves
 to converge on that desired state? That's essentially what configuration
 management gives us.
 
+## The standard solution
+
+There is the standard solution, which is adopted by the operations team in most
+organisations: identify the pain points, and write some code to automate them.
+Each individual organisation has its own peculiarities, or preferences, or
+constraints, so each organisation winds up with their own, custom, solution.
+This has its advantages:
+
+* in house solutions tend to *exactly* solve the business problem, or at least
+  the current understanding of the business problem.
+
+* they tend to be relatively simple, since they apply to a single problem
+  domain and a relatively small set of solution domains.
+
+* the team that builds the solution completely understands it.
+
+This is awesome. It's the minimum viable product, and the team fully
+understands what's been built. However, there are a couple of disadvantages:
+
+* It's not leveraging existing expertise. There's a huge wealth of expertise
+  and experience in the software engineering community. And the particular
+  advantage of open source is that much of that knowledge and experience has
+  been codified into open source software that you can reuse in your
+  organisation. If you're reinventing the wheel internally, then you're
+  typically making the same R&D investment as somebody else has, and you're not
+  learning from their mistakes.
+
+* There's team-specific knowledge. This makes life difficult for two reasons.
+  Bob, who wrote the scripts in the first place becomes important and
+  irreplaceable. If you're Bob, that might be a good thing. It's job security.
+  It's an indication of authority, of seniority. If you're the business, then
+  it's definitely a bad thing. You've got a single point of failure in Bob. If
+  he gets hit by a bus, the company has a major problem.
+
+  It's also difficult to hire people. People need much more domain knowledge
+  before they can become useful, because not only do they need to learn the
+  problem domain, they need to learn Bob's solution domain.
+
+How do you solve these problems? Look to an existing product, of course. There
+are several people who have already discovered they've got these problems, and
+shared their solutions. And, for bonus points, they're in the open source
+world, so we can leverage their solutions, too.
+
 ## The landscape
 
 Of course, as with any different software problem domain, there are a dozen
@@ -261,7 +304,7 @@ source space:
   of Computer Immunology and promise theory (which, as it turns out, has many
   more general applications).
 
-Personally, I have a soft spot for LCFG; it predates my attendance at Edinburgh
+Personally, I have a soft spot for LCFG; it pre-dates my attendance at Edinburgh
 University by a couple of years, but we used it heavily to power the TARDIS
 project, and I was far more interested in it than the more academic side of the
 Computer Science curriculum. (In retrospect, I really should have realised that
@@ -427,30 +470,17 @@ you've declared.
 
 ## Benefits
 
-Why is this a good idea?
+Why is this a good idea? What benefits will it actually bring to your
+organisation? (Other than you having this warm, fuzzy glow that you're doing
+the 'right thing'?)
 
 # Notes on what I want to talk about
 
 Before I get too carried away with writing, here's, roughly, some of the things
 I want to talk about in this piece:
 
-* Background on Configuration Management
-
-  * What it's all about.
-
-  * Different tools: LCFG, CFEngine, Puppet, Chef, etc.
 
 * Features, Benefits, Impact & Evidence
-
-  * Features:
-
-    * Convergent environment for systems
-
-    * Abstraction of the details of how various systems work
-
-    * Separation of code & data.
-
-    * Introspection of the running environment
 
   * Benefits:
 

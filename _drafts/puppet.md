@@ -304,13 +304,15 @@ source space:
   of Computer Immunology and promise theory (which, as it turns out, has many
   more general applications).
 
-Personally, I have a soft spot for LCFG; it pre-dates my attendance at Edinburgh
-University by a couple of years, but we used it heavily to power the TARDIS
-project, and I was far more interested in it than the more academic side of the
-Computer Science curriculum. (In retrospect, I really should have realised that
-configuration management was a 'proper' branch of CS and devoted my final year
-project to pitching in with LCFG, DICE (the 'Department of Informatics
-Computing Environment') and what would become LCFG 2.)
+Personally, I have a soft spot for LCFG; it pre-dates my attendance at
+Edinburgh University by a couple of years, but we used it heavily to power the
+TARDIS project, and I was far more interested in it than the more academic side
+of the Computer Science curriculum. (In retrospect, I really should have
+realised that configuration management was a 'proper' branch of CS and devoted
+my final year project to pitching in with LCFG, DICE (the 'Department of
+Informatics Computing Environment') and what would become LCFG 2, instead of
+hanging around on the edge of the system-onna-chip group, messing around with
+Bluetooth.)
 
 Since then, there has been a family tree of descendants from these two projects:
 
@@ -473,6 +475,15 @@ you've declared.
 Why is this a good idea? What benefits will it actually bring to your
 organisation? (Other than you having this warm, fuzzy glow that you're doing
 the 'right thing'?)
+
+## Impact
+
+That's all well and good, but what difference do these benefits actually make
+to my bottom line?
+
+## Evidence
+
+Who else has had their bottom line impacted by this sort of evidence?
 
 # Notes on what I want to talk about
 

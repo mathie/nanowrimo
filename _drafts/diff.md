@@ -8,7 +8,8 @@ history on this laptop, which does some duplicate elimination, out of the last
 variety. These broke down into three main divisions:
 
 * `gd` which is my shortcut for `git diff`. This is most often when I'm
-  reviewing in-progress code to see what I've changed so far.
+  reviewing in-progress code to see what I've changed so far, sometimes as a
+  reminder of what I've still got left to do.
 
 * `gdc` which is my short cut for `git diff --cached`. This is me reviewing the
   changes that I've staged in git's index, almost always as a final code review

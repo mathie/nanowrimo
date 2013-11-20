@@ -2,21 +2,21 @@
 layout: post
 title: Getting Shit Done (mid-2013 edition)
 ---
-I've been a (bad) student of the Getting Things Done&tm; philosophy for a long
+I've been a (bad) student of the Getting Things Done&trade; philosophy for a long
 time now. I still remember when I first read the original book. It was
 September 2005, when I spent a week on the Greek island of Naxos with my
 (not-quite, at that point) wife and father-in-law. I remember getting very
 cross at the introduction, but resolving to stick with it.
 
-Since then, I've fallen off the horse and gotten back on more often than I can
-remember. That's more of a reflection of me than the system; when I follow it,
-I'm more productive. I'm currently, mostly, on the horse and I've got a
-specific system I work with. It largely involved three tools:
+Since then, I've fallen off the wagon and gotten back on the horse more often
+than I can remember. That's more of a reflection of me than the system; when I
+follow it, I'm more productive. I'm currently, mostly, on the horse and I've
+got a specific system I work with. It largely involves three tools:
 
 * [OmniFocus]() as my 'trusted system' which contains all the stuff I want to
   do.
 
-* [EverNote]() which has a few roles. One is as a tickler file, one is as a
+* [Evernote]() which has a few roles. One is as a tickler file, one is as a
   general searchable store of material, and the final is as a daily journal.
 
 * Pen and paper. Yeah, I know. How quaint. If it's any consolation, it's lots
@@ -127,11 +127,11 @@ each of:
 
 That helps a bit; I tend to work in relatively isolated modes -- work, home or
 'me' time -- but I still wind up with dozens of projects under each "role",
-which still creates some fear in dealing with the todo list effectively.
+which still creates some fear in dealing with the to do list effectively.
 
 I'm also slightly uneasy about personal development and super secret projects
 being dumped under personal, especially since I rarely devote any "me" time to
-actually getting on with my todo list. Personal development is, technically,
+actually getting on with my to do list. Personal development is, technically,
 important to work, too, and hopefully one or two of the super secret projects
 will be worth devoting work time to, too. The trouble is it's tricky to admit
 that when client work == money...
@@ -429,10 +429,16 @@ that I currently think I would like to do. And it's organised in a manageable
 way so as not to seem utterly daunting. How do I actually decide what to do
 next?
 
+I primarily plan my work for a day by a 'Today' perspective in OmniFocus. This
+is built by showing the 'context' view mode, with actions grouped and sorted by
+their start date. I've then collapsed the 'start any time' group, and by
+default, all the groups that start in the future. All that's left is actions
+that I've committed to a start date on, which is today or earlier.
+
 There are, more often than I'd like, still tasks hanging over from yesterday
 which I haven't completed for one reason or another. The first task is to
 reassess them. Am I definitely going to do them today? In which case, I change
-the start date to 'Today' and they become part of today's todo list. If not,
+the start date to 'Today' and they become part of today's to do list. If not,
 then I remove the start date entirely and allow them to be reassessed as part
 of my regular review process.
 
@@ -536,9 +542,225 @@ immediately mark it as complete. There are two reasons why I do this:
   them while still getting my commitments completed? Could I better manage and
   reduce the impact of interruptions?
 
+## Pens and Paper
+
+This is the point in the day when OmniFocus takes a sharp exit and my trusty
+pen & notebook come to the fore. I can't explain it, but I'm more productive
+when I have a hand written to do list beside me when I'm working. There's
+something about it that helps keep the focus, and it's somewhat gratifying to
+hand write those check marks, score things off, draw little daggers next to the
+task that just won't die.
+
+My daily activity sheet is stolen straight from the Pomodoro technique, more or
+less. It's got a few things on it. At the top of the page is today's date, and
+the role(s) I'm focusing on today.
+
+Next up is 'Goals'. This is a high level overview of what I want to achieve
+over the course of the day. Usually, it's one or two items -- something to do
+with the client I'm working for, and something to do with personal development.
+This month, it's mostly been along the lines of:
+
+> ### Goals
+>
+> * Make progress on project `X` for client `Y`.
+>
+> * Write my NaNoWriMo quota for today.
+>
+> * Go explore London!
+
+(I've been at a variety of conferences in London this past week.)
+
+The idea is to set the tone for the day, to remind myself what's most important
+today. It also reminds me that there's some balance to the day. When I'm
+already two thirds of the way through the day and I'm still working on the
+first of the goals, perhaps it's time to change tack, work on something else
+for a bit.
+
+Then it's down to activities. These are the tasks that I'll be spending most of
+my day on, usually in the form of Pomodoros. Some of these activities will be
+directly transcribed from my the 'Today' view of OmniFocus, some will be a
+bundle of related items grouped together to make up a single Pomodoro (usually
+things like "reply to a bunch of emails").
+
+Then there's final, currently empty, section called 'Unplanned and Urgent'
+where I note interruptions that need action. They can then filter back into
+OmniFocus as and when.
+
+Depending on whether I'm at my desk in the office or, sometimes, just on my
+mood, I can be bad at keeping up with the handwritten list, and the strict
+Pomodoros. But when I do stick to it, I typically have a more productive day.
+
 ## Reporting
+
+This is where I start to introduce Evernote into the system. Towards the end of
+the day, I tend to resynchronise my paper system with OmniFocus, so my trusted
+system is up to date with what I've done, and what I've still got to do. This
+gives me the opportunity to extract some basic reports.
+
+I've got a lump of Applescript (don't get me started on Applescript. I'm a
+programmer and I can't make it do what I want it to do. What's with that?)
+which collates the items that I've completed in OmniFocus that day. It formats
+them and dumps them into an Evernote document with today's date. (Actually,
+it's a little more flexible than that, because it allows me to do the same for
+yesterday, and the previous couple of days, for when I need to catch up.)
+
+The script will cleverly create, or append, a note in my 'journal' notebook on
+Evernote, titled with the date of the completed items.
+
+This works well, because I also keep a journal in Evernote. Each morning, I
+start a new note in my journal notebook and title it with the current date
+(using the apple-shift-D shortcut). In there, I'll tend to make a note of my
+goals for the day (though since I've switched to using pen and paper for that,
+I do so less often).
+
+Throughout the day, I'll keep notes about what I'm working on. Just random,
+unconnected thoughts. Regurgitating what I've just learned, notes on what I'm
+doing, copy'n'paste of useful shell/Ruby/whatever snippets. Append only, might
+be drivel, but it usually helps to keep my thoughts in order, and the
+occasional useful thing shows up in searches later. (If it does, I usually try
+and extract it to a separate note, as it's demonstrated its usefulness.)
+
+So, when it's working well, I wind up with, in Evernote, a daily journal which
+includes:
+
+* goals for the day;
+
+* notes as the day progresses; and
+
+* a list of what I actually completed that day.
+
+Pretty useful, as it turns out. It's especially useful when a client comes back
+and says, "can you give me a breakdown of where we spent the time this month?"
+And sometimes it's just useful as a way to jog my memory, or to provide more
+general context for something else. (For example, I was trying to remember when
+a particular event happened. For the life of me, I couldn't remember the date,
+but I could remember what I was working on at the time. Searching for what I
+was working on in Evernote sought out the date. Sometimes associative memories
+can be exploited in useful ways!)
+
+## Tickling
+
+Having introduced how I use Evernote as a journal, and how I connect Evernote
+with OmniFocus, it makes sense to talk about how else I use Evernote now. The
+first thing is as a tickler file. "But what's a Tickler File?" I hear you ask.
+I'm glad you asked because that's just what I was about to step back and
+explain.
+
+In the traditional Getting Things Done methodology, a Tickler File is a set of
+suspended files (or maybe a portable equivalent) with forty-three folders in
+it. The first set of folders are labelled '1' through '31', representing each
+day of the month. The remaining twelve are labelled 'January' through
+'December' for the months of the year.
+
+The idea is simple. There's something on your plate that you need to deal with
+at some point in the future, but you don't need to deal with it now. You want
+to forget about it now, but you want to be reminded of it at the appropriate
+time.
+
+If it's something you need to be reminded about before the end of the current
+month, stick it (or a representation of it -- i.e. a post-it note) into the
+folder corresponding to the day that you want to be reminded about it. If it's
+something to deal with in a subsequent month, stick that representation of the
+item in the appropriate month.
+
+At the start of each day, empty the contents of the folder for that day, and
+deal with it as you would any other in box. At the start of each month, empty
+that month's folder and, as expected, deal with it as you would any other in
+box. (This might including processing items back into the tickler file for
+particular days that month.)
+
+I used to use OmniFocus to tackle my Tickler items, too. The trouble is that
+this cluttered up my weekly review. The activities in the Tickler file are ones
+that I've deliberately deferred, with a date before which I do not need to
+review the item. So I don't need to review them on a weekly basis. I'm already
+confident that I can forget about them until the date I've set.
+
+Instead, I use reminders in Evernote, which keeps them out my weekly review,
+but means I still get notified when items become relevant. I use a system
+approximately equivalent to the folder-based tickler file: if I know the exact
+date when something becomes relevant, I'll create a note in Evernote and add a
+reminder for that date. If I'm not entirely sure when something will become
+relevant, I'll make a conservative estimate -- the start of that month, a
+couple of weeks before it might be relevant, whatever works.
+
+When a reminder shows up in Evernote, I'll generally capture it -- with a link
+to the note in Evernote -- in my OmniFocus in box, and process it as usual.
+
+## Storage
+
+It's not really about finding a place to store data, it's about finding a place
+where you trust that you can retrieve information when you need it. For my
+sins, this is split amongst three stores in reality:
+
+* My email archive. It's not entirely true to say that, when an email comes in
+  that requires some action, I add it to my OmniFocus in box and delete it.
+  Instead of deleting it, I archive it. There are a few missing patches, due to
+  carelessness, or a desire to create a clean slate, but I have most of the
+  email I've sent or personally received since 1996. This is often an
+  interesting corpus of data to search through... It's also why I quite like
+  other inboxes to feed into my email in box, because I get a relatively small
+  number of searchable corpuses.
+
+* My local file system on my computer. By extension, this includes the content
+  I've shared amongst multiple computers on Dropbox, and, to a lesser extent,
+  the content that I've contributed to git repositories. (In the case of git
+  repositories, Spotlight isn't capable of introspecting the past, so it's just
+  the latest checked out copy that it returns results for.) Spotlight is pretty
+  good. It's got a decent index of file content and, given the right
+  encouragement, can often cough up the right result.
+
+* Evernote, which can be a little more interesting, and sometimes a bit
+  terrifying. I try to chuck everything into Evernote that I might want to
+  retrieve in the future. In reality, I've no idea what I'll want to retrieve
+  in future, so I try to chuck everything that doesn't have a home elsewhere
+  into Evernote. This includes:
+
+  * Things that I've read on the Internet that I might want to contemplate
+    again. Usually whatever I've 'liked' in Instapaper, recipes that I've
+    cooked (or would like to cook in the future), academic papers that I want
+    to read.
+
+  * Bits of paper that I get through the post. Pension statements, credit card
+    statements, letters from HMRC. They all go into Evernote and, when I'm well
+    behaved, get tagged properly.
+
+  * Receipts, when I'm out and about. There are two types of receipts that I
+    need to keep track of: work expenses that I can reclaim, and personal
+    expenses that I should be tracking when I'm keeping track of personal
+    budgets (slightly off the wagon there). Either way, I take a photograph of
+    the receipt, it winds up in my Evernote inbox, and I process it as usual.
+    Plus, I can bin the random bit of paper I might otherwise have lost anyway.
+
+  * And then just any random thoughts. (Like the dream I had last night about
+    flying off to some desert context and helping Joel to provide medical
+    support for some racing event. The details are hazy, mostly because of the
+    sandstorm, I suspect.)
+
+  * Scanned, or photographed, hand written notes. I've talked a bit about using
+    pen and paper before to keep track of to do lists for the day. I tend to
+    capture these in Evernote for posterity. I also photograph or scan any hand
+    written notes (morning pages, anything else). The utterly terrifying thing
+    is that Evernote does some form of character recognition on these notes and
+    makes them searchable. (I suspect the 'clever' thing here is that it
+    doesn't actually do character recognition, but something a little more
+    clever. It's able to boil the words you've written down to a number of
+    possibilities, then allow you to search on that.)
+
+The important thing is that information can be retrieved when I'm looking for
+it. This is genuinely very useful. I'm confident that if I write something, or
+type up a note, or chuck a file in Dropbox, I will be able to find it later. It
+also allows me to relate content. When I search for 'Woburn', not only does my
+trusted system remind me that I'm off to Center Parcs in Woburn Forest next
+year, but that I had a Christmas meal in Woburn Abbey eleven years ago. (I
+don't particularly appreciate this association, but hey ho.)
 
 ## Trusted System
 
 I hope this gives you an insight into how I operate my trusted system,
-capturing, processing, organising and doing things.
+capturing, processing, organising and doing things. There's nothing new here;
+all I've done is taken other people's ideas, amalgamated them and produced a
+system that I imagine works.
+
+But you can't possibly trust somebody who's spent the afternoon writing about
+his trusted system instead of doing what's actually important right now, can
+you?

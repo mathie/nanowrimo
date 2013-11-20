@@ -96,7 +96,93 @@ that commit.
 When you've accepted all the changes, review the proposed commit with
 `git diff --cached`. This is your chance to cast a final eye over the change,
 make sure it makes sense in isolation and doesn't have unrelated changes. This
-is your chance for a personal code review. It often gives me good inspiration
-for the commit message, too, which is an important part of the story you're
-telling; you've described *what* your changing the code already; now is the
-time to explain *why*.
+is also your chance for a personal code review:
+
+* Does the code look correct?
+
+* Are there unit/integration tests covering the changes you've made?
+
+* Does the code look pretty? Is there any trailing white space, or duplicate
+  carriage returns, or missing carriage returns? Are things lined up nicely?
+
+* Is it accurately documented?
+
+* Have I accidentally left in any debugging code?
+
+It often gives me good inspiration for the commit message, too, which is an
+important part of the story you're telling; you've described *what* your
+changing the code already; now is the time to explain *why*. Now that I'm
+satisfied about what I'm committing, I commit that chunk.
+
+Repeat the process for the other, related, change that's part of this pull
+request's plot arc.
+
+But what about the other, unrelated, changes? They don't have a place in this
+plot arc -- they're more like the standalone 'filler' episodes that TV writers
+bung in to fill up a season. What shall we do with them? Separate stories,
+separate branches/patches/pull requests, of course! If you're lucky, then you
+can create a new branch straight away, with master as the branch point, keeping
+your working tree intact:
+
+    git checkout -b shiny-refactoring master
+
+then use `git add --patch`, `git diff --cached` and `git commit` to build up
+and review atomic commits on the new branch for your shiny refactoring.
+
+If your current working tree's changes will not cleanly apply to master, then
+the easiest way to deal with it is to temporarily stash them, and pop them from
+the stash afterwards.
+
+{% highlight bash %}
+git stash save --include-untracked
+git checkout -b shiny-refactoring master
+git stash pop
+{% endhighlight %}
+
+You'll still need to resolve the conflicts yourself, though.
+
+When things get a bit more complicated, `git add --patch` still has your back.
+When you've got an intertwined set of changes which are close to each other in
+the source, but are semantically unrelated, it's a bit more effort to unpick
+them into individual commits. There are two scenarios here.
+
+If you have two unrelated changes in the same fragment, but they're only in the
+same fragment because they share some context, then you can hit `s`. The
+fragment will be split into smaller constituent fragments and you'll be asked
+if you'd like to stage each one individually.
+
+If the code is seriously intertwined, then you can ask git to fire up your
+favourite editor with the patch fragment in question. You can then *edit* that
+patch to the version you want to stage. If the patch is adding a line that you
+don't want to add, delete that line from the patch. If the patch is removing a
+line that you don't want removed, turn it into a context line (by turning the
+leading `-` into a space). This can be a bit finickity, but when you need to do
+it, it's awesome.
+
+I've had a couple of people pushing back a little on this work flow (usually
+when I'm in the driving seat while pairing) over the past few years.
+
+The first was from a long-time eXtreme Programmer, who rightly pointed out,
+"but doesn't that mean you're committing untested code?" Even if the entire
+working tree has a passing test suite, the fragment that I'm staging for commit
+might not. It's a fair point and one I occasionally have some angst over. If
+I'm feeling that angst, then there is a workaround. At the point where I have a
+set of changes staged and ready to commit, I can tweak the work flow to:
+
+{% highlight bash %}
+git stash save --keep-index --include-untracked
+rake test # Or whatever your testing strategy is
+git commit
+git stash pop
+{% endhighlight %}
+
+This will stash away the changes that aren't staged for commit, then run my
+full suite of tests, so I can be sure I've got a passing test suite for this
+individual commit.
+
+The other argument I hear is, "why bother?" Well, that's really the point of
+this article. I think it's important to tell stories with my code: each commit
+should tell an individual story, and each patch/pull-request should tell a
+single (albeit larger) story, too.
+
+(Not that I always listen to my own advice, of course.)

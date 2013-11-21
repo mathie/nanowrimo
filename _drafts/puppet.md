@@ -101,7 +101,7 @@ These days, when most of us are primarily concerned about clouds of virtual
 machines, the process is a little different. Instead of the new system being
 told, "here's some install media and a configuration file", it gets booted with
 some gold master installation, customised slightly on first boot by
-configuration metadata provided by the cloud and then goes on its merry way. If
+configuration meta-data provided by the cloud and then goes on its merry way. If
 the base image is still a pristine installation, then the principle is roughly
 the same. It's just a little quicker. :)
 
@@ -120,7 +120,7 @@ instantiated, it cannot ever be changed), then yes, you might be right.
 
 The real world tends not to be quite so neat. Servers have side effects
 (otherwise, what are they doing?). Even in the trivial example of an HTTP load
-balancer in the form of nginx. I might be able to neatly model its primary
+balancer in the form of Nginx. I might be able to neatly model its primary
 purpose as a pure function:
 
     response = forward(request)
@@ -137,7 +137,7 @@ but that still produces a number of side effects:
   get sent to it.
 
 And a load balancer is a trivial example (which I'm sure could be represented
-with Haskell's IO monad if one wanted to be particularly picky). What about
+with the IO monad in Haskell if one wanted to be particularly picky). What about
 database servers that persist real data, or parts of the system that
 asynchronously defer operations to other parts of the infrastructure?
 
@@ -154,7 +154,7 @@ there's a configuration change, you produce a new gold master for affected
 systems. Then you spin up replacement systems that implement the new
 configuration, and tear down the old ones. This is readily doable for some
 parts of the infrastructure (the traditionally 'stateless' parts like
-application servers, load balancers, etc) but it's not necessarily a good fit
+application servers, load balancers, etc. but it's not necessarily a good fit
 for other parts.
 
 Plus it seems wasteful to me, to be constantly recycling systems down to their
@@ -176,10 +176,10 @@ Even when we've achieved this state of automated deployment, we still need some
 mechanism to update the configuration of systems while they're running. Right
 now, in the narrative, we're back to manual configuration.
 
-When we decide that we need to change the nginx configuration on all the
+When we decide that we need to change the Nginx configuration on all the
 application servers -- due to some new knowledge, or an update to the
 application we're serving, or to mitigate a security vulnerability -- it's back
-to applying it by hand. Either ssh'ing in to each relevant host (let's hope we
+to applying it by hand. Either ssh-ing in to each relevant host (let's hope we
 didn't forget one!) and manually changing the configuration files or, if we're
 able to, copying the new configuration file to each host. Oh, and restarting
 the necessary services (or reloading their configuration files, in some
@@ -294,8 +294,8 @@ source space:
   used to manage a heterogeneous network of Solaris, Linux (RedHat, Debian and
   Scientific Linux), SGI and Mac OS X systems used by students, staff and
   researchers. Computing environments in Universities tend to be difficult to
-  manage, due to rogue agents (students, including me having discovered tcpdump
-  at one point) and the unique needs of researchers.
+  manage, due to rogue agents (students, including me, having discovered
+  tcpdump at one point) and the unique needs of researchers.
 
 * CFEngine, developed by Mark Burgess. It came from a similar background; a
   physics graduate tasked with managing a bunch of servers and figuring there
@@ -312,7 +312,7 @@ realised that configuration management was a 'proper' branch of CS and devoted
 my final year project to pitching in with LCFG, DICE (the 'Department of
 Informatics Computing Environment') and what would become LCFG 2, instead of
 hanging around on the edge of the system-onna-chip group, messing around with
-Bluetooth.)
+Bluetooth and the Linux kernel.)
 
 Since then, there has been a family tree of descendants from these two projects:
 
@@ -326,9 +326,9 @@ Since then, there has been a family tree of descendants from these two projects:
   commercial needs with an enterprise edition.
 
 * Chef, which was an idealogical fork of Puppet. Adam Jacobs had a consultancy
-  company building automated infrastructure for startups with Puppet. He got
-  frustrated with some of the design decisions of puppet and wrote Chef to
-  alleviate those problems. While appearing similar on the surface, Chef and
+  company building automated infrastructure for start-up companies with Puppet.
+  He got frustrated with some of the design decisions of puppet and wrote Chef
+  to alleviate those problems. While appearing similar on the surface, Chef and
   Puppet really do have differing underlying core beliefs, particularly about
   the split of responsibilities between the server and client.
 
@@ -347,11 +347,11 @@ wife, but we no longer have half an ISP in the corner of the bedroom. No,
 instead we have kids, which are much louder than server fans!)
 
 In my first graduate job, having at the time, temporarily, decided I wasn't cut
-out for software development (I was buggering around with low level details of
-hardware to enable DMA transfer of voice data from DSPs to the network card,
-and writing NDIS drivers for Windows NT; you may have had the same thoughts), I
-built and deployed a cluster of machines with CFEngine to support a development
-team, including:
+out for software development (I spent the first two years in that job buggering
+around with low level details of hardware to enable DMA transfer of voice data
+from DSPs to the network card, and writing NDIS drivers for Windows NT; you may
+have had the same thoughts), I built and deployed a cluster of machines with
+CFEngine to support a development team, including:
 
 * user authentication, including LDAP for distributing user information and
   Kerberos for managing authorisation;
@@ -369,8 +369,8 @@ team, including:
 
 It was a fairly small team, but I got the opportunity to experiment with a
 whole pile of stuff, especially network protocols, routing, network management
-and, of course, CFEngine. I should probably have been more grateful to my team
-leader at the time for indulging all my experiments... ;-)
+and, of course, CFEngine. In retrospect, I should probably have been more
+grateful to my team leader at the time for indulging all my experiments... ;-)
 
 Since then, I jumped back to development, and kind of forgot about my
 operations background. I even caught myself configuring servers by hand (who
@@ -485,6 +485,245 @@ to my bottom line?
 
 Who else has had their bottom line impacted by this sort of evidence?
 
+## So, Puppet?
+
+Now we've got a broad idea of what configuration management is, and how it fits
+in (to my personal history, as well as the overall ecosystem -- thanks for
+humouring me there), what about Puppet? Puppet is one of the relatively mature
+solutions in the space. It's got the hereditary benefits of Luke Kanies having
+been involved in the configuration management space for so long. It's built in
+the beautifully expressive language of Ruby (OK, I'm biased), has its own
+declarative language, can manipulate dozens of resources, supports dozens of
+platforms, and is pretty easy to extend.
+
+It's also evolved massively over the years, so the Puppet of three years ago
+(0.26.x series) is only superficially like the Puppet of today (as I'm writing,
+3.2.x). There has been a strong ethos of maintaining backwards compatibility,
+so it still has the occasional interesting behaviour (see 'the anchor pattern'
+when I get to it), but for the most part, it's a mature and expressive
+configuration management system, with rich introspection across the cluster of
+nodes.
+
+Roughly speaking, a modern Puppet infrastructure has a number of key
+components:
+
+* `facter`, which will introspect a node and provides local configuration
+  information back to the puppet master so that it can construct a catalogue.
+
+* The puppet agent. This takes a compiled catalogue from the puppet master and
+  applies it to the local node. It then reports the results of having applied
+  the catalogue to the node back to the puppet master.
+
+* The puppet master, which takes local configuration information and other
+  cluster state, then compiles a catalogue for each node which it can then
+  apply. It also provides authentication and authorisation services, defining
+  what nodes can be trusted to take part in the cluster.
+
+* PuppetDB, which is the back-end persistent store for the cluster. It collects
+  `facter` information from each node, reports on agent runs from each node,
+  and any exported resources from each node. It then shares that information
+  with the rest of the cluster, and provides an API to access this information.
+  Essentially, it's the oracle of how a puppet cluster is performing, how it's
+  currently configured and how the state of the cluster has changed over time.
+
+* `mcollective` is a separate, but related, component which allows for command
+  and control of the running cluster.
+
+* Hiera is a mechanism to separate out the configuration from the code of the
+  puppet modules. This way you can have shared modules that apply desired state
+  throughout the cluster, but tweak the individual configuration based on
+  different criteria.
+
+Let's examine each in turn a little more.
+
+### Facter
+
+Facter's role is very simple. It provides an abstract mechanism to report a
+number of standard 'facts' about a node. Things like the IP address, the kernel
+version, how much memory the system has. Information about the hardware, the
+software and the node's surrounding environment. This is the first of the
+abstraction layers we'll come across and here it's on the side of reading
+information. It separate the 'what' from the 'how'.
+
+The 'what' is some standard, abstract piece of information (like, for example,
+the IP address of the primary network interface). How one actually retrieves
+that information is definitely operating system specific. On Linux, you can
+probably get at it by parsing the output of `ifconfig` or, on more modern
+distributions, the `iptools` package is probably more flexible, if the `ip`
+command is available.  On Solaris ... OK, on modern 'Solaris', you're more
+likely to get the information from parsing the output of `ipadm`. On Windows?
+Haven't a scoobie, but somebody does, and can provide an implementation that
+provides the right information.
+
+So facter is a powerful tool that feeds into the heterogeneous nature of
+configuration management tools. The higher level tools only need to care about
+the 'what' of the information that's being collected about a host, not 'how'
+its collected. This is pretty cool.
+
+It's exactly the same sort of pattern as we see with Board Support Packages
+(BSPs) in the embedded platform world. The operating system/compiler has a set
+of primitive data that it relies on from the underlying hardware. For the most
+part, it doesn't care how that data is supplied. The BSP on the other hand
+knows that it needs to implement a particular set of interfaces in order to
+supply the operating system with the right information. It implements the
+primitives required by its esoteric hardware to make that happen.
+
+We see the same pattern all over. (In fact, we'll see the same pattern with
+commands as well as queries, shortly. Suffice to say it's a good pattern to
+work with.) Coding to interfaces is useful, primarily because it turns the
+implementation required from the order of `m x n` to `m + n` (where `m` is the
+number of variables we need to introspect, and `n` is the number of
+heterogeneous system types we'd like to support).
+
+Facter gives us useful information about the running node, and its current
+state, in order to help us converge on a sensible set of configuration for that
+node. The way that Puppet is designed, the node is not permitted to make its
+own decisions about the configuration that should be applied to it, so the
+facter information is communicated back upstream to the puppet master.
+
+### The puppet master
+
+The Puppet Master sounds like a terribly important role, and sounds a lot like
+a central point of failure, doesn't it? It used to be this way -- there was
+typically one master, which was the gatekeeper to the knowledge of the entire
+cluster's state.
+
+It's less that way now, particularly since PuppetDB came on the scene. The role
+of the puppet master now is two fold:
+
+* Authentication and authorisation; and
+
+* given information from facter on the client, and the holistic knowledge of
+  the cluster, compiling the minimal catalogue that the node needs to know in
+  order to converge its local configuration to the global optimum of the
+  cluster.
+
+#### Authentication and authorisation
+
+Let's take authentication first because, unusually, it's the easy bit.
+
+Puppet helpfully provides us with a mechanism to manage a public key
+infrastructure (PKI). If you trust, and can scale with, Puppet's PKI mechanism
+then it can be the PKI for your entire organisation, and power the secure,
+trusted communication amongst other service, too. Which is pretty cool.
+
+But let's take a look at how puppet authenticates and authorises members of
+that puppet cluster.
+
+The puppet master, by default, creates its own certificate authority. This is
+the centre of a web of trust. Any client certificate signed by the puppet
+master's root certificate is trusted as being part of this cluster and the
+puppet master will supply catalogues of the current desired state to it.
+
+When a node first attempts to join a puppet cluster, it will present its public
+key to the puppet master. The puppet master needs to sign, and return, this
+public key before the client can actually retrieve a catalogue from the puppet
+master. So there's no way for an untrusted node to infiltrate the cluster
+without explicit permission.
+
+When a new node is presented to the puppet master, it has to make a decision:
+can I trust this node, or do I need a human being to verify it on my behalf?
+This is controlled by a configuration file on the puppet master. Essentially,
+in my experience, there are a couple of options:
+
+* The puppet master is already protected from rogue clients by another
+  mechanism (usually a firewall) and so anyone who can communicate with the
+  puppet master is OK. This is trading off defence in depth against
+  convenience, but in some environments (e.g. development) can be OK.
+
+* Manually approving every new node at the puppet master. This involves logging
+  into the puppet master, running `sudo puppet cert list` to see the new node,
+  verifying the fingerprint, then signing it with `sudo puppet sign <node>`.
+
+When you're managing a large number of nodes, I'm sure there's a certain
+scalability vs convenience trade off that one has to make, but I've (sadly) not
+yet been in that situation.
+
+As with any respectable public key authorisation system, Puppet is also
+perfectly happy revoking permission to be part of the cluster. This is achieved
+through a standard mechanism with PKI, providing a mechanism to revoke
+certificates, and maintaining a certificate revocation list. When we're decided
+that a particular node should no longer be a responsible part of the cluster,
+then we tell that to the puppet master, by revoking its key. Once that's
+happened, the node no longer has permission to talk to the cluster, so any
+requests from its agent to get a current catalogue are refused.
+
+Of course, any application-specific permissions need to be managed
+independently, but if you happen to use the Puppet PKI infrastructure for other
+purposes, then revoking a node's access to the Puppet master also has the neat
+side effect of preventing it from having access to other services too. This can
+be pretty powerful. Revoking a puppet certificate automatically revoking a
+node's access to the shared OpenVPN network, and preventing it from logging to
+the shared log server, for example, can be very useful.
+
+#### Creating Catalogues
+
+The most important role of the puppet master is to create a catalogue (which is
+the stuff the client needs to apply to make sure it's converging towards its
+ideal configuration.
+
+There are a few things taken into account when providing this canonical
+catalogue of state:
+
+* The facts from the node itself, having just been reported by `facter` and
+  passed up to the puppet master from the agent.
+
+* The overall desired configuration, as specified by the current state of the
+  puppet configuration. This is, most often, resolved from the current state of
+  some branch/environment of the puppet configuration's source control
+  repository.
+
+* The current state of the rest of the cluster, as persisted by puppet's stored
+  configuration back end (if it exists).
+
+The combination of this information gives the puppet master the ability to
+provide a canonical catalogue of state that the client should currently want to
+converge to.
+
+There's a distinct advantage to making the puppet master responsible for
+compiling and delivering the catalogue. We might trust the client a bit. But
+that's not to say we trust it entirely. The client is still treated as suspect.
+It only gets as much information as it needs to do its job. That's why we
+compile and minimise the information it needs to know on the puppet master. If
+an application server doesn't need to know about the bits of the cluster that
+configure the database servers, then why should we leak that information to
+them?
+
+As well as being a security concern, it helps with performance on the client
+nodes. If a node only has to consider the components that apply to it, then it
+can verify its desired state more quickly.
+
+On the other hand, it makes the puppet master work so much harder, because it
+has to deliver a bespoke catalogue to each node. Which often, in practice,
+makes the puppet master the slowest node, because it's computing a rather
+complicated catalogue for each node, and it's doing that on a frequent basis.
+
+On the plus side, when we have a stable infrastructure, the changes to that
+infrastructure are infrequent (relative to the poll for changes, at least). We
+get to take advantage of lower level problems (for example, when the puppet
+master sends back a 304 saying 'nothing has changed since last time you asked',
+then it's simpler to check most recently cached catalogue and see what's
+changed, without putting load on the puppet master).
+
+But that's fundamentally the role of the puppet master: to figure put who is in
+which silo, who is allowed to know what, and supply them with that information.
+It also has a secondary role of receiving reports about how a catalogue has
+been applied, and stashing that information appropriately.
+
+It's funny, as I write about it, I realise that the puppet master serves two
+different paradigms:
+
+* One is delightfully pure-functional. It takes the current cluster state
+  (exported resources), the current node state (from facter), and the overall
+  declared state (from configuration) and produces some new state for the
+  clients. It's not the canonical source of any of thsee, so it's entirely
+  stateless in that regard.
+
+* The authentication and authorisation stage. Irritatingly, it is poviding and
+  storing, state here. Which is often the trouble with scaling puppet masters;
+  how do you distribute and scale the PKI bits? Perhaps its a sign that the
+  cluster needs to delegate that to a third party service?
+
 # Notes on what I want to talk about
 
 Before I get too carried away with writing, here's, roughly, some of the things
@@ -554,7 +793,7 @@ I want to talk about in this piece:
 
   * Providers
 
-* Puppet & Git workflow
+* Puppet & Git work flow
 
 * Rolling out updates with Puppet and mcollective.
 

@@ -721,8 +721,9 @@ sins, this is split amongst three stores in reality:
     to read.
 
   * Bits of paper that I get through the post. Pension statements, credit card
-    statements, letters from HMRC. They all go into Evernote and, when I'm well
-    behaved, get tagged properly.
+    statements, letters from HMRC. I have a Doxie scanner which makes it
+    trivial to scan, then discard all the bits of paper I get through the post.
+    They all go into Evernote and, when I'm well behaved, get tagged properly.
 
   * Receipts, when I'm out and about. There are two types of receipts that I
     need to keep track of: work expenses that I can reclaim, and personal
@@ -739,12 +740,13 @@ sins, this is split amongst three stores in reality:
   * Scanned, or photographed, hand written notes. I've talked a bit about using
     pen and paper before to keep track of to do lists for the day. I tend to
     capture these in Evernote for posterity. I also photograph or scan any hand
-    written notes (morning pages, anything else). The utterly terrifying thing
-    is that Evernote does some form of character recognition on these notes and
-    makes them searchable. (I suspect the 'clever' thing here is that it
-    doesn't actually do character recognition, but something a little more
-    clever. It's able to boil the words you've written down to a number of
-    possibilities, then allow you to search on that.)
+    written notes (morning pages, mind maps, sketches of UI designs, anything
+    else). The utterly terrifying thing is that Evernote does some form of
+    character recognition on these notes and makes them searchable. (I
+    suspect the 'clever' thing here is that it doesn't actually do character
+    recognition, but something a little more abstract. It's able to boil the
+    words you've written down to a number of possibilities, then allow you to
+    search on that.)
 
 The important thing is that information can be retrieved when I'm looking for
 it. This is genuinely very useful. I'm confident that if I write something, or

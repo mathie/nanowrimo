@@ -719,10 +719,10 @@ different paradigms:
   clients. It's not the canonical source of any of thsee, so it's entirely
   stateless in that regard.
 
-* The authentication and authorisation stage. Irritatingly, it is poviding and
-  storing, state here. Which is often the trouble with scaling puppet masters;
-  how do you distribute and scale the PKI bits? Perhaps its a sign that the
-  cluster needs to delegate that to a third party service?
+* The authentication and authorisation stage. Irritatingly, it is providing,
+  and storing, state here. Which is often the trouble with scaling puppet
+  masters; how do you distribute and scale the PKI bits? Perhaps its a sign
+  that the cluster needs to delegate that to a third party service?
 
 # Notes on what I want to talk about
 

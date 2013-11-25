@@ -363,3 +363,13 @@ James W. Hunt, along with Douglas McIlroy in 1976, and was the subject of a
 paper entitled, "An algorithm for differential file comparison". It's an
 improvement on the longest common subsequence solution so it's faster and uses
 less memory.
+
+## Resources
+
+* [Longest common substring problem](http://en.wikipedia.org/wiki/Longest_common_substring_problem)
+  on Wikipedia.
+
+* [Patience Diff, a brief summary](http://alfedenzo.livejournal.com/170301.html).
+
+* [Patience Diff advantages](http://bramcohen.livejournal.com/73318.html) from
+  the 'inventor' of the algorithm.

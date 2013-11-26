@@ -75,10 +75,10 @@ the commented out code -- and remove all the junk.
 
 Before we can actually write any code, we have a moral responsibility to make
 sure it looks pretty. Don't worry. While there are hundreds of choices of CSS
-frameworks (don't worry, nobody beyond neanderthals hand code their CSS from
-scratch these days!), this is a simple choice. Everybody uses Twitter
-Bootstrap. It's good that half web sites on the planet look the same. It
-provides a familiar 'user experience' to the customers.
+frameworks (nobody beyond Neanderthals hand code their CSS from scratch these
+days!), this is a simple choice. Everybody uses Twitter Bootstrap. It's good
+that half web sites on the planet look the same. It provides a familiar 'user
+experience' to the customers.
 
 Don't think you've got it all easy, of course. You've still got to pick the
 template language for building the HTML of the views. This one is still fairly
@@ -90,7 +90,7 @@ whether you hate yourself, or not.)
 ## The Rails View
 
 Now we're on to day three of "Learn Rails in 21 days": Implementing the Rails
-backend. We are responsible developers, of course, so it's not like we're going
+back end. We are responsible developers, of course, so it's not like we're going
 to eschew accessibility and usability by building a single page JavaScript
 application with an API backend (tempting though it is, because all our friends
 are doing it). We're going to build a proper Rails application, which we'll
@@ -119,7 +119,7 @@ fact, that's a good point. We don't really want to tie our private API and
 public API together. Our internal interests might change, and we can't ever
 break a commitment to our public API users.
 
-OK, let's be pragmatic about it. We don't need the private API to interact with
+OK, let's be "pragmatic" about it. We don't need the private API to interact with
 the JavaScript rich client today, so we can ignore that today, and implement it
 tomorrow. We still need the public API, though. No responsible Web 2.0
 application can exist on the Internet without an API for the hordes of third
@@ -157,11 +157,32 @@ dozen gems we can use which -- more or less -- abstract them away. Of course,
 each of these gems have strong opinions, so I hope you can stomach one of the
 opinions.
 
+We've not yet gotten down to the actions that are performed by each of the
+controllers. Let's again be pragmatic by assuming that each of the interactions
+are simple; just the usual creation, reading (collections and individual
+posts), updating and deletion. And, because we're simplifying things, aiming
+for that minimum viable product, we can ignore complex things like
+authentication and authorisation.
+
+(Security is driven by demand, right?  Actually, total tangent, but staying
+'one page ahead of the class' is exactly how you responsibly implement most
+things, including security, if you consider that you've got a script kiddie in
+your class. Everything has a cost, and security inhibits innovation and
+process, so the later on you have to kowtow to it, the better. It's only when
+you become popular/irritating that folks tend to test your security. Of course,
+that assumes a minimal responsible attitude to security -- hashing passwords,
+using TLS, not being an idiot -- in the first place. I've been involved in
+companies where the security demand is driven by the development team, where
+it's been driven by external entities (usually investors or partners), and when
+it's just been driven by the owners/founders' paranoia levels. Perhaps I'm
+naive because I've never dealt with a major data leak. Is that luck, or me
+being reasonably good at what I do?)
+
 ### The Persistence Layer
 
 We've successfully test-driven our controllers into existence. And, for bonus
 points, we've got really fast tests because they've been implemented entirely
-in isolation because we're not talking to some slow backend persistence layer
+in isolation because we're not talking to some slow back end persistence layer
 -- hell, we haven't even needed to implement it yet! After all, if you can mock
 it out, you can save the implementation for another day.
 
@@ -189,7 +210,7 @@ Since we don't really want to expose this nasty, bloated, ActiveRecord model,
 to the rest of our mature, responsible application, we need a "Plain Ol' Ruby
 Object" to cover for it. Just because we hate performance and love to bust the
 method caches, we base this on an `OpenStruct`. But at least we now have a home
-for the actual behviour/business logic of our model.
+for the actual behaviour/business logic of our model.
 
 Naturally, the `Post` model doesn't have any view-related concerns, because,
 well, they're (kinda) the responsibility of the view. So we need a
@@ -214,7 +235,10 @@ convention of saying `Serializer`.)
 
 I'm almost tempted to suggest there should be a separate Deserialiser there
 too, which takes raw data submitted from each of the versions of the API, and
-converts it back into a plain ol' `Post` object.
+converts it back into a plain ol' `Post` object. But this is getting crazy. We
+need a class for each object to say how it should be serialised already (thank
+goodness we've abstracted the format!) and doubling that with a deseraliser for
+each seems like ... fun!
 
 We're not done yet. We've still got to deal with HTML forms. While our API
 clients are relatively well behaved, submitting correctly typed data (because
@@ -228,3 +252,8 @@ object?
 Are we done with the Rails side of things, yet? Have we covered all the
 responsibilities we need? Have we managed to build the simplest thing that
 could possibly work yet?
+
+## What about the view?
+
+Well, no, we haven't event delivered a pile of HTML to the user, we've just
+masticated some data from another service.

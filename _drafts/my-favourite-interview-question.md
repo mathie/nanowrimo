@@ -24,7 +24,17 @@ generation, the intermediate communication, or the client side browser
 behaviour?) and their depth of knowledge in those areas. Finally, it tells me
 something of the candidate's communication (and teaching) skills.
 
-Plus I always learn something new.
+Plus I always learn something new. And when you're interviewing, as Valve
+succinctly put it, you're looking for a 'T' shape. Somebody who has a wide
+breadth of experience, but has depth of experience in one particular area.
+Personally, I want to find people who can cover much of the DevOps arena, but
+who has depth in something in particular (Ruby on Rails, MySQL, scaling HTTP,
+networking, racking servers, etc). Either a lack of depth, or a lack of
+breadth, is suboptimal.
+
+It's good to find somebody who can answer the breadth of the question and at
+least one are in some depth. (Ideally more depth than me because I want to
+learn!)
 
 So, where to start? I find it helpful to think in terms of three different
 aspects:

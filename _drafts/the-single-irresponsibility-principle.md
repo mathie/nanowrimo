@@ -233,12 +233,12 @@ different serialiser? (And let's not get into the British English cognitive
 shift of talking about serialisation but feeling obliged to follow the
 convention of saying `Serializer`.)
 
-I'm almost tempted to suggest there should be a separate Deserialiser there
-too, which takes raw data submitted from each of the versions of the API, and
-converts it back into a plain ol' `Post` object. But this is getting crazy. We
-need a class for each object to say how it should be serialised already (thank
-goodness we've abstracted the format!) and doubling that with a deseraliser for
-each seems like ... fun!
+I'm almost tempted to suggest there should be a separate `PostDeserialiser`
+there too, which takes raw data submitted from each of the versions of the API,
+and converts it back into a plain ol' `Post` object. But this is getting crazy.
+We need a class for each object to say how it should be serialised already
+(thank goodness we've abstracted the format!) and doubling that with a
+deseraliser for each seems like ... fun!
 
 We're not done yet. We've still got to deal with HTML forms. While our API
 clients are relatively well behaved, submitting correctly typed data (because
@@ -249,11 +249,72 @@ post, ready for passing to the `PostRepository` to be persisted? How do we
 communicate the current form state to the browser, based on the current `Post`
 object?
 
+Step in the `PostForm`, which is capable of deserialising these nested hashes
+of strings into the internal representation, with native data types. This could
+be the place to do validation, but we might even want a separate
+`PostValidator` concern mixed in to handle that -- after all, validation might
+be shared across several deserialisation classes (e.g. the ones that take API
+input, too).
+
 Are we done with the Rails side of things, yet? Have we covered all the
 responsibilities we need? Have we managed to build the simplest thing that
-could possibly work yet?
+could possibly work yet? Let's just summarise what we've got so far:
 
-## What about the view?
+* As a responsible, progress web 2.0 application, we need at least three
+  different controllers:
 
-Well, no, we haven't event delivered a pile of HTML to the user, we've just
-masticated some data from another service.
+  * `PostsController` to interact with regular web browsers.
+
+  * `API::V1::PostsController` which is our public API so everyone can mash up
+    our content.
+
+  * `API::Private::PostsController`, which is the internal API our JavaScript
+    smart client is going to need.
+
+  * `API::Mobile::PostsController`, the mobile-optimised private API for the
+    internal iPhone application.
+
+* A representation for business logic and persistence:
+
+  * A `Registry` where we can retrieve a handle to the object's persistence
+    store at runtime, decoupling the code from the store.
+
+  * A `PostRepository` which handles the retrieval and persistence of these
+    posts.
+
+  * A `PostData` model, our traditional `ActiveRecord` model. We're being
+    pragmatic here, leveraging the power of ActiveRecord, but hiding it behind
+    a more modern facade.
+
+  * A `Post` model, which represents the post within our application.
+
+* And then we've got the classes that handle different representations:
+
+  * A `PostSerializer` which takes a post and knows how to render it to an
+    abstract nested hash which is the lowest common denominator for JSON, XML,
+    etc. Let's be pragmatic and say it's responsible for de-serialising, too.
+
+  * A `PostDecorator`, which handles all the view-related concerns of rendering
+    a post on the HTML page, so there's no complex logic in the view templates.
+
+  * A `PostForm` which handles the logical representation of the form (a
+    `FormBuilder` handles the HTML bits), and can deserialise the submitted
+    form data back into native `Post` objects.
+
+That seems about enough for now. We've got a clear separation of concerns, each
+responsibility has its own place, and we don't have bloated models or
+controllers. *phew*, bullet dodged!
+
+## What about the client side?
+
+Every responsible Web 2.0 application has a rich JavaScript client interface.
+It's the only way to be sure. And, as cool kids, we really *love* distributed
+systems because they make life so much more fun, so why not distribute state
+across every browser that visits the site?
+
+But, oh my, which client side JavaScript application framework does one pick?
+Backbone.js pitches itself as lightweight (it's all relative). EmberJS is fully
+featured, opinionated, and relatively closely aligned to the opinions of Rails.
+AngularJS is ... clever?
+
+Either way, this means we're going to need to create a 

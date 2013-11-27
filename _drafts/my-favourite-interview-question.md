@@ -36,6 +36,10 @@ It's good to find somebody who can answer the breadth of the question and at
 least one are in some depth. (Ideally more depth than me because I want to
 learn!)
 
+Given the choice, though, I'd rather manage employees with depth, than trust
+autonomy to people with breadth. (*FIXME: Is that a fair way of phrasing it?*)
+
+
 So, where to start? I find it helpful to think in terms of three different
 aspects:
 

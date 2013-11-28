@@ -33,12 +33,10 @@ networking, racking servers, etc). Either a lack of depth, or a lack of
 breadth, is suboptimal.
 
 It's good to find somebody who can answer the breadth of the question and at
-least one are in some depth. (Ideally more depth than me because I want to
-learn!)
-
-Given the choice, though, I'd rather manage employees with depth, than trust
-autonomy to people with breadth. (*FIXME: Is that a fair way of phrasing it?*)
-
+least one area in some depth. (Ideally more depth than me because I want to
+learn!) Given the choice, though, I'd rather manage employees with depth, than
+trust autonomy to people with breadth. (*FIXME: Is that a fair way of phrasing
+it?*)
 
 So, where to start? I find it helpful to think in terms of three different
 aspects:
@@ -313,7 +311,7 @@ Sounds like we need a NoSQL solution, right?
 
 This is mostly a sidetrack to the matter at hand, so I'll keep it brief.
 Essentially, the reasons that DNS doesn't crash around our ears every day is
-because of two things:
+because of three things:
 
 * Delegation. At each level in the system, an entity is able to say, "I
   delegate control of this sub entity to somebody else. Go talk to them." So,
@@ -334,6 +332,21 @@ because of two things:
   there will be one at their peer, or they're directly querying the roots. If
   any of these intermediates have a valid cached answer, they can give it to
   you without violating their agreement.
+
+* Recursion. This is how the layering becomes effective. When you make a DNS
+  request to your local server where it doesn't have the answer in its local
+  cache already, you have two options:
+
+  * ask it to point you in the direction of a name server that is more likely
+    to have an answer; or
+
+  * have it ask the question of the next name server up the chain, find out the
+    answer for you, and pass that answer back to you.
+
+  The latter is recursion and it's what makes the caching so effective. If one
+  person using a recursive name server asks for `www.example.com`, then the
+  server finds it out on their behalf and caches the answer. Next time a
+  different client asks the same question, the answer is already in the cache.
 
 This does, of course, result in 'eventual consistency', and often the
 consistency is in terms of hours. It's not uncommon for the time to live to be a
@@ -455,16 +468,54 @@ acquired by the Dynamic Host Control Protocol (DHCP), which is way out of
 scope, but suffice to say it provides a node with the configuration information
 is needs to be a part of the local network.)
 
-## The BSD Socket Library
+Having discovered the IP address of the local name server, the last remaining
+piece of the jigsaw we need is the port number it listens on. The protocols at
+the transport layer have a concept of a source port and a destination port so
+that the transport layer knows which application to pass data back up to when
+it receives it from the network. For the client side of the communication, a
+random port is assigned by the transport layer (usually in the 'dynamic' range
+of 49,152 - 65,535), unless the client requests otherwise.
+
+But how does the client know which port to use as the destination? The Internet
+Assigned Names Authority (IANA) maintains a list of well known services. This
+is a mapping from a well known name for a service to the port that service
+normally listens on. This mapping is distributed as standard with all operating
+systems -- on all Unix-alikes, you'll find the mapping in a text file in
+`/etc/services`. The well known name (as defined by the RFC which defines the
+Domain Name System protocol) is "domain". You can find out the port number for
+this well known name yourself:
+
+    > grep '^domain\b' /etc/services
+    domain           53/udp     # Domain Name Server
+    domain           53/tcp     # Domain Name Server
+
+Now we know the name server listens on port 53 by default, so that's the port
+we should connect to. In practice, this is standard and well known (which is
+why the ports in the range 0 - 1,023 are known as the 'well known ports'), so
+the mapping from name to number seems superfluous. However, the decoupling of
+service names and their associated port numbers is still useful. Service lookup
+is done through the Name Service Switch, the same mechanism that handles host
+name resolution. This allows a system administrator to, for example, provide a
+network-based look up of service mappings, perhaps through LDAP. This is most
+useful when providing custom services on a network. The software developers
+give the protocol a registered name, and the operations people deploying it can
+decide on the port number it uses in the deployment environment.
+
+So. At last. We have the IP address of the name server we can use to resolve
+the name into an IP address, and we have the port number we want to connect to.
+This gives us enough information to open a 'socket' to the name server and
+communicate using our application layer protocol.
+
+### The BSD Socket Library
 
 There's a standard interface between the application layer and the transport
-layer, and it's the BSD socket library. It's a standard part of every Unix
-operating system (and by 'standard', I mean there are several subtly different
-standards that each Unix implements in its own special way) and there is a
-moral equivalent of it in Windows, too, I believe. Almost every programming
-language provides a low level API which is similar to the underlying socket
-library, usually trying to abstract away the crazy differences amongst their
-supported platforms.
+layer, and it's called the BSD socket library. It's a standard part of every
+Unix operating system (and by 'standard', I mean there are several subtly
+different standards that each Unix implements in its own special way) and there
+is a moral equivalent of it in Windows, too, I believe. Almost every
+programming language provides a low level API which is similar to the
+underlying socket library, usually trying to abstract away the crazy
+differences amongst their supported platforms.
 
 But the principles are the same. There is a mechanism to initiate a connection
 to a remote host (`connect()`), to send data to that host (`send()`), to wait
@@ -474,7 +525,7 @@ announce that you're prepared to deal with connections to a particular
 application-specific port (`listen()`) and to wait for connections on that port
 (`accept()`).
 
-While I've mentioned the vageries of this particular interface (across dozens
+While I've mentioned the vagaries of this particular interface (across dozens
 of operating systems, which have matured over the course of decades), it's a
 powerful thing. It provides a clean interface between the application level
 saying *what* it wants to achieve, and the underlying operating system
@@ -482,6 +533,195 @@ promising that it will achieve it, without leaking the details of *how*. This
 sort of abstraction is powerful, and pervasive across all the successful (ops,
 at least) projects I work with.
 
+### The DNS protocol
+
+Once we've got this open socket, we can start to communicate using the
+application layer DNS protocol. It's a datagram protocol, which for our
+purposes just now at least, means it's completely stateless. Each packet of
+data being sent is independent of every other. This is generally useful if
+we're just trying to communicate a small amount of data (the DNS protocol
+limits the size of an individual packet to 512 bytes, which is almost always
+small enough to fit in a single packet on the underlying layers).
+
+That's plenty of room for a DNS request, and ought to be enough for any reply,
+too (there's a mechanism to cope with a response that's longer than 512 bytes,
+but it's relatively expensive in terms of performance, so any sane sysadmin
+makes sure their resource records are smaller!). Let's figure out how to
+formulate a query. We need to put together the following information in a
+correctly formatted packet:
+
+* an identifier -- essentially a random number -- so that the resolver library
+  can match up the request with the response. This is a 16 bit field, so
+  something in range 0 - 65,535.
+
+* the query name -- the name we want to resolve -- formatted as a sequence of
+  labels. If we're looking to resolve `www.example.com`, then the labels are
+  `www`, `example` and `com`. The labels are arranged in the packet as a single
+  byte containing the label length, followed by each of the characters of the
+  label. The sequence is terminated with a null byte. So our query for
+  `www.example.com` would turn into:
+
+      [
+        3, 'w', 'w', 'w',
+        7, 'e', 'x', 'a', 'm', 'p', 'l', 'e',
+        3, 'c', 'o', 'm',
+        0
+      ]
+
+* The query type (i.e. the type of resource record we're looking for). In our
+  case, we're looking to resolve a name into an IP address, so we're looking
+  for an 'A' record.
+
+* The query class. This is mostly historical, but allows for the domain name
+  system to provide address resolution for other types of system. In our case,
+  we're after Internet addresses, so the query class is 'IN'.
+
+That's it. The rest of the packet is boilerplate, indicating that it's a query,
+rather than a response. Typically, a resolver will indicate to the server that
+recursion is desired, too.
+
+### A point of order
+
+Things have been going quite nicely so far, haven't they? Let's complicate it a
+little. Numbers are encoded as a sequence of bits grouped into 8-bit bytes
+(interchangeably referred to as 'octets', though I dimly recall there's a
+subtle difference). A single byte number is nice and easy, since it fits in a
+single unit. (It's helpful here to think in terms of hexadecimal numbers,
+because they align neatly with the byte boundaries.) A single byte can store
+values `0x00` through `0xff` (255).
+
+But what about longer numbers? The identifier above, for example, is a 16 bit
+number, which is two bytes. This allows us to represent all the integers from
+`0x0000` through `0xffff` (65,535). This apparently atomic value at our level
+of understanding doesn't fit into the atomic 'byte' at the transport layer, so
+we need some way of encoding it.
+
+It's pretty straightforward. Mostly. We can decompose the number into two
+atomic bytes. So, if we choose an identifier value of `0xabcd`, we can
+decompose that into two bytes: `0xab` and `0xcd`. The trouble is: in which
+order do we transmit the sequence of bytes? Obviously, there needs to be an
+agreed order, so that the system writing the bytes and the system reading the
+bytes understand the same semantic value at the higher level.
+
+This is referred to as 'endianness'. There are two real options:
+
+* Little endian, where the least significant byte is transmitted first and the
+  most significant byte is transmitted last. So our identifier would be
+  transmitted as `0xcd` followed by `0xab`.
+
+* Big endian, where most significant byte is transmitted first, so our
+  identifier would be transmitted as `0xab` followed by `0xcd`.
+
+* There's also middle endian. Don't ask.
+
+(FIXME: I guarantee I've gotten that the wrong way round somewhere.)
+
+The convention for all Internet protocols is to use big endian.
+
+Guess what? The Intel PC architecture that we know and love is little endian
+(which is why it's sometimes referred to as the 'Intel convention'). Each layer
+in the protocol stack presents an opaque sequence of bytes to the lower layer,
+so it's the responsibility of that layer to apply the correct conventions for
+ordering those bytes. Fortunately, the Unix standard library provides a set of
+functions to help us out:
+
+* `htons()` (for 'short' or 16-bit numbers) and `htonl()` (for 'long' or 32-bit
+  numbers) which convert a value from 'host' byte order to 'network' byte
+  order.
+
+* `ntohs()` and `ntohl()` which convert from network byte order back into host
+  byte order.
+
+The standard library is clever enough to make these null operations on big
+endian computers and perform the correct byte swapping on little endian
+computers.
+
+The particularly insidious problem with endianness is that you won't notice
+that you've got it wrong when you're talking between two hosts of the same
+architecture. The problem only occurs when you're talking to a host who's
+endianness is different. (This is why, once upon a time, when I was developing
+a custom network protocol, I made sure to do interoperability tests between the
+Linux PC I was using, and a dusty old DEC Alpha (with a big endian PowerPC chip
+-- the Motorola convention) running Linux in the corner of the office.)
+
+### A question and an answer
+
+Now that we've composed our DNS query, we send it off down through the network
+stack and await a response. There are a couple of possibilities here:
+
+* The remote name server gets back to us in a timely manner with a response; or
+
+* ... nothing happens.
+
+The latter case is surprisingly common -- UDP is an unreliable protocol, as
+we'll get to later on. Packets get lost, servers fail, networks can be slow.
+The resolver library waits for a configurable amount of time before retrying
+and, ultimately, giving up, returning an error back to the application.
+
+On a good day, with a fair wind, though, we'll get a reply back. The reply is
+sent from the name server's IP address and well known port back to our IP
+address and the source port the query originated from. The response contains:
+
+* The identifier we sent, so we can correlate it with the response. (This
+  allows the resolver to reuse source ports for multiple queries.)
+
+* A response code, indicating success, along with an indicator of whether the
+  response can be considered authoritative (rather than cached).
+
+* A copy of the question we asked.
+
+* The answer(s) to the query in the form of resource records.
+
+* If the answer is not authoritative, then a pointer to the name servers which
+  should be able to provide a more authoritative answer in the form of resource
+  records.
+
+* Additional resource records which may be useful for further resolution.
+
+Each of these are in a standard format, called the 'resource record'. It contains:
+
+* The name of the record. When we're querying for IP address of
+  `www.example.com` the name is the first label, `www` in the `example.com`
+  zone.
+
+* The type of record being returned. In our case, we're looking for an `A`
+  record to come back.
+
+* The class of the resource record. As indicated above, this will always be
+  `IN`.
+
+* The time to live for the resource record. This is the length of time that the
+  answer should be considered valid, and cacheable, for.
+
+* The resource data itself. (In the packet format, it's a 16-bit number
+  representing the number of octets in the resource data, followed by that
+  number of octets of data.)
+
+In our case, we're going to get an answer along the lines of:
+
+* Name: `www`
+
+* Type: `A`
+
+* Class: `IN`
+
+* Time to live: `86400` (1 day)
+
+* Resource data: `127.0.0.1`, encoded as a 32-bit integer.
+
+If a name resolves to multiple IP addresses -- in other words, there are
+multiple IPs which will perform the function for that name -- then multiple
+resource records are returned; one for each host. The name server will
+typically randomise the order of these resource records on the assumption that
+the client will select the first one, as this provides a basic way of balancing
+load amongst the nodes.
+
+Awesome. At last. We have an IP address to talk to in order to request our web
+page. Fortunately, in reality, this operation takes a single network round trip
+to the nearest host that has an answer, so usually only takes a few
+milliseconds.
+
+## HyperText Transfer Protocol
 
 ## Keywords I want to incorporate
 
@@ -493,7 +733,7 @@ at least) projects I work with.
 * Gateway nodes, internet routing, routing protocols.
 * Ethernet, Wifi, CSMA-CA and CSMA-CD.
 * TCP for HTTP, UDP for DNS. Pros/cons.
-* Name resolution at each layer: DNS, well known ports, ARP.
+* Name resolution at each layer: ARP.
 * Packet formats, encapsulation.
 * Fragmentation and reassembly. Ordering guarantees.
 * Server side architecture -- composed services, communication with back end

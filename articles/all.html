@@ -1,0 +1,11 @@
+---
+layout: default
+title: Full content of every article
+---
+{% for post in site.posts %}
+  <h1>{{ post.title }}</h1>
+  <section id="article-body" itemprop="text description articleBody">
+    {{ post.content }}
+  </section>
+  <hr>
+{% endfor %}

@@ -1070,6 +1070,107 @@ Like I say, there are variations on this technique, but all the ones I
 understand exhibit a sawtooth behaviour in the congestion window size, assuming
 it never exceeds the receive window.
 
+## Internet Protocol
+
+I think it's time to delve further down the stack to the Internet Protocol
+(IP). The purpose of the IP layer is twofold:
+
+* fragmentation and reassembly of packets where the packet size of the upper
+  layers happens to be larger than the data link layer supports; and
+
+* figuring out the next hop for a packet so that it can get closer to its
+  eventual destination.
+
+(Of course, if the reassembled packet has hit its final destination, the next
+hop is the transport layer!)
+
+Sounds pretty straightforward, eh? Let's start by looking at the header IP
+prepends to the transport layer packet. There are two versions of IP currently
+in relatively wide use: version 4 is most common, with 32-bit addressing, and
+the shiny new version 6, which is starting to become more widespread and has
+128-bit addressing. Much as it seems crazy to talk about the past instead of
+the future, I'm much more familiar with IPv4 than v6, so I'll stick with that.
+
+Of course, thanks to the well implemented layering of protocols, neither the
+transport layer (TCP or UDP), nor the data link layer care about what protocol
+is in use at the Internet layer. However, communication between hosts
+supporting IPv4 and IPv6 require a gateway in between to translate.
+
+The IPv4 header has the following fields:
+
+* The version of the IP packet. Funnily enough, in this version of IP, it is
+  the constant, '4'.
+
+* The header length in 32-bit (4 byte) words. This allows the receiver to
+  understand how many optional headers have been included. It's a minimum of 5,
+  since the fixed size header is 20 bytes.
+
+* The type of service, or differentiated services code point. Essentially, this
+  is a mechanism for applications to indicate the priority of the data.
+  Traditionally, packets could be specified as being 'interactive' (where
+  latency is the primary concern), 'bulk transfer', where high throughput is
+  most important, or 'reliable', which discourages the packet from being
+  dropped. In practice, the original type of service implementation wasn't
+  trusted by intermediate nodes because end nodes could set it arbitrarily.
+  Diffserv provides a more cooperative mechanism though it's still primarily
+  used to prioritise voice (low latency) traffic, as I understand it.
+
+* Congestion notification, which allows the endpoints to infer congestion
+  before packets are dropped (obsoleting ICMP source quench messages, I think).
+
+* The total length of the packet (headers and payload). This tends to feature
+  at each encapsulation of the payload so that layer has an easy way to see
+  when its packet and payload end. Sometimes it includes the header, sometimes
+  it's just the length of the payload. Such are the vagaries of communications
+  protocols...
+
+* An identifier, which groups together separate fragments which belong to the
+  same packet at the transport level.
+
+* Flags and offsets to manage fragmentation and reassembly.
+
+* Time to live, which specifies the number of hops the packet can take before
+  it gets discarded. Each time a packet traverses a router, the time to live is
+  decremented. If it hits zero before getting to its destination, then it's
+  discarded. This prevents packets getting into loops, living forever, and
+  congesting the network.
+
+* The transport layer protocol that the packet belongs to. This is analogous to
+  the port number, in that it indicates which upper level transport layer the
+  packet should be passed to when it hits the destination.
+
+* The header checksum. This is *just* an error detection mechanism for the
+  header itself. If the header checksum doesn't match at any point, the node
+  receiving that packet drops it. Checksumming the payload itself is the
+  responsibility of a higher level protocol (TCP provides such checksumming,
+  but UDP does not).
+
+* The source address indicating the IP address of the computer sending the
+  message, so that the receiver knows where to send a response. Remember that
+  the IP protocol is completely stateless, so it doesn't have to retain
+  information about previous packet flows. Each packet provides enough state by
+  itself, and at this layer, it's enough to know where the packet came from so
+  we can reply (if necessary).
+
+* The destination address indicating the IP address of the computer that should
+  receive the message. While this information isn't always useful to the
+  computer that does wind up receiving the message, all the intermediate hops
+  use it to help move the packet to its final destination.
+
+The IP layer is the first point where we stop thinking about end-to-end
+communication and start thinking about it as a series of hops. The Internet is
+an interconnected set of inter-networks. There isn't a single hop from any one
+computer to any other -- such a thing would be an administrative nightmare.
+
+Instead, each node on the Internet knows which nodes it is connected to. For a
+simple end node, this will be the 'default gateway' -- the node that knows
+where to push packets on to so they get towards their final destination.
+Intermediate nodes, like your home router, might know how to get to two other
+networks -- the computers directly connected to your home network, and the
+Internet at large. Routers on the Internet have many more connections, and much
+richer information about where is best to send packets in order for them to
+reach their destination.
+
 ## Keywords I want to incorporate
 
 * Proxy caches

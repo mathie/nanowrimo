@@ -723,11 +723,361 @@ milliseconds.
 
 ## HyperText Transfer Protocol
 
+Now we're really getting somewhere. Let's make an HTTP request to the IP
+address we've figured out from the resolver. We've already covered the
+resolution of well known service names. The well known name here is,
+unsurprisingly, http, which corresponds to port 80.
+
+We can open a TCP socket to port 80 of the particular IP address. We'll cover
+what that means when we delve into the transport layer. For now, it's enough to
+know that this gives us a reasonably reliable bi-directional byte stream
+between ourselves and the remote system, which allows us to talk our higher
+level application protocol.
+
+The most commonly deployed version of the HyperText Transfer Protocol is
+version 1.1, defined in RFC 2616.
+
+### Sidebar: RFCs
+
+A Request For Comments (RFC) is a proposed standard issued by the Internet
+Engineering Task Force (IETF). The typical process is that, in order to
+standardise or enhance a protocol, a working group of interested parties will
+be formed by the IETF, usually centred around a mailing list, with occasional
+meetings in person. The members of the working group, moderated by a
+chairperson, will put together a proposed standard, and issue it as an RFC.
+This document will tend to go through many iterations before being promoted to
+a standard (STD) or Best Current Practice (BCP).
+
+### End Sidebar
+
+HTTP is a text-oriented protocol, as is the preferred way of the IETF. These
+protocols are more verbose than the binary encodings favoured by other
+standards bodies, but they have the distinct advantage of being human readable,
+which makes them easier to work with, inspect and debug. It's also a
+request/response protocol, in that the client initiates a request, and the
+server responds. A request contains the following information:
+
+* A verb indicating the action to perform. This can be `GET` to retrieve
+  information from the server, or `POST` to send data to the remote server.
+
+* The absolute path to the resource. If we're talking via a proxy, this must be
+  the full URL, but let's defer that conversation 'til later, so for now it's
+  just the path and query string of the URL.
+
+* The HTTP version that we're talking.
+
+* A set of headers (key/value pairs) providing more information about the
+  request we're making and the type of response we're looking for.
+
+* Any additional data being posted to the server as a request body.
+
+In our case, the request can be quite simple:
+
+    GET / HTTP/1.1
+    Host: www.bbc.co.uk
+
+This is enough information for the BBC's web server to supply a response to the
+request. We're `GET`ting the root page of the BBC's web site (`/`) and we're
+talking HTTP version 1.1. We also need to tell the remote system the name of
+the host that we're attempting to talk to, which is the DNS name from the URL.
+It's entirely possible for a single IP address to host web pages for multiple
+domain names, so the name needs to be transmitted as part of the protocol.
+
+In reality, a web browser will send a richer set of headers. For example,
+Google Chrome presents the following request:
+
+    GET / HTTP/1.1
+    Host: www.bbc.co.uk
+    Connection: keep-alive
+    Cache-Control: no-cache
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+    Pragma: no-cache
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36
+    Accept-Encoding: gzip,deflate,sdch
+    Accept-Language: en-GB,en-US;q=0.8,en;q=0.6
+    Cookie: ckns_policy=111; s1=527235E744920043; _chartbeat_uuniq=1; ckpf_ww_mobile_js=on
+
+It's providing the following extra information:
+
+* `Connection: keep-alive` tells the server not to immediately close the
+  connection when it returns the initial response. This allows the browser to
+  reuse the connection for subsequent requests, which can be an important
+  performance optimisation, as we'll see later on.
+
+* `Cache-Control: no-cache` and `Pragma: no-cache` is an instruction to any
+  intermediate proxies that get in the way, basically saying "please go ask the
+  origin server; don't return cached content."
+
+* Then we have content negotiation:
+
+  * The `Accept` header tells the server what kind of response we'd prefer to
+    receive, as a set of preferred MIME types. The accept header above is
+    saying that we'd like to receive (in order of preference): HTML, XHTML,
+    XML, a Webp image or, failing that, anything at all you've got. This allows
+    the server to respond with the representation the client prefers. (For
+    example, if we were writing an API client which is looking for machine
+    readable data from the server, we might indicate that we'd like a JSON or
+    XML response).
+
+  * The `Accept-Encoding` header tells the server what kinds of compression
+    format the client understands, if the server would like to compress the
+    response before sending it. In this case, Chrome supports GZip, Default and
+    SDCH compression formats.
+
+  * The `Accept-Language` header tells the server which (human) language we'd
+    prefer, in the order we'd prefer it. In this case, it's saying that, given
+    the choice, I'd prefer UK English, then US English and, if all else fails,
+    I'll take whatever English variant you've got.
+
+* The `User-Agent` string which identifies the brand and version of the client
+  that's making the request. The format of the user agent string is not
+  standardised, and there are many, many variants. Since servers inevitably
+  wind up parsing the user agent string, and customising the response based on
+  it, modern user agent strings tend to contain not only the name and version
+  of the browser itself, but the names and versions of all the competing
+  browsers that it claims full compatibility with.
+
+* Finally, the `Cookie`, which is a mechanism for persisting state across a
+  stateless protocol. More on cookies later.
+
+Individual lines in the request are separated by the carriage return and line
+feed characters (known as CRLF) in sequence. The client indicates that the
+request is complete by sending two CRLF characters in a row.
+
+### The Cookie Monster
+
+HTTP is essentially a stateless protocol, meaning that each request/response
+pair is entirely independent of any other. All the information required to
+generate a response is contained within the request, so the server does not
+need to maintain any state (at the HTTP level, at least) between requests. This
+is an awesome feature for scalability and resilience. It means that you don't
+need to maintain an affinity to a single server to get the correct response.
+
+But, of course, we're all about maintaining and mutating state. If only the
+world was pure functional, life would be so much easier. We have a bad habit of
+interacting with the world, though, and mutating it.
+
+HTTP's answer to maintaining state between individual HTTP requests is the
+cookie. The `Cookie` header that the client sends to the server is a set of
+key/value pairs containing all the (unexpired) cookie parameters that the
+browser has stored for that host (and, optionally, path). We'll see how those
+cookies get to the browser when we resurface at the response.
+
+## The TCP transport layer
+
+Now that we've got a fully formulated request at the application layer, let's
+dive down and see what happens at the transport layer. HTTP uses the
+Transmission Control Protocol (TCP) for its underlying transport layer. TCP
+provides a (relatively) reliable stream of bytes in both directions between the
+client and server, ensuring that those bytes arrive in the correct sequence. It
+also provides mechanisms for finding the optimum bandwidth available across the
+entire connection, reducing the likelihood of 'congestion collapse' of the
+Internet. Finally, it has a checksum to help detect if the contents of the
+packet is damaged in transit.
+
+### The TCP header
+
+The TCP header contains the information required for the protocol to do its
+magic. It has:
+
+* The source port, a 16-bit number indicating the application which is sending
+  the packet of data. This lets the destination know which port to send a reply
+  back to.
+
+* The destination port, another 16-bit number indicating the application on the
+  host which should receive the packet of data.
+
+* A 32-bit sequence number, so that we can detect and correct packets which are
+  received out of order, or which are dropped.
+
+* A 32-bit acknowledgement number, to confirm receipt of a sequence number and,
+  by implication, all prior sequence numbers.
+
+* Flags which control various aspects of the protocol. We'll dig into these
+  later.
+
+* The window size, a 16-bit number which is used to help with flow control.
+  Again, we'll dig into this in a bit.
+
+* A (relatively simple) checksum to allow the receiver to check that the packet
+  has not been damaged in transit.
+
+* An 'urgent' pointer, which I'm going to entirely gloss over, because it's
+  virtually unused, badly implemented and almost entirely pointless. The
+  principle use case of it was allowing the user hitting `ctrl-c` in a telnet
+  session to jump the queue of packets waiting to be sent.
+
+* A variable number of additional options.
+
+That's all well and good, but how does TCP actually work? How do all these
+sequences numbers and flags combine to give us a reliable bi-directional stream
+of bytes?
+
+### Initiating a connection
+
+In order for a server to announce to the transport layer of a host that it
+intends to deal with traffic arriving at a particular port, it binds (or
+listens) to that port. This is known as a passive open because it doesn't
+result in any network communication, just a promise to deal with packets coming
+in on that port number.
+
+When a client initiates a connection to a server, this is known as an 'active
+open'. The first thing they need to do before exchanging data is to synchronise
+their sequence numbers. This is known as the three-way handshake:
+
+* First of all, the client sends a packet to the server with the `SYN` (short
+  for synchronise) flag set, and a randomly generated sequence number.
+
+* If the server is contemplating accepting the connection, then it responds
+  with both the `SYN` and `ACK` (short for acknowledgement) flags set. The
+  sequence number is set to a randomly generated number, and acknowledgement
+  number is one greater than the sequence number set by the client.
+
+* When the client gets this packet back, it responds with a packet with the
+  `ACK` bit set. The sequence number is the same as the acknowledgement number
+  received from the server, and the acknowledgement number is the increment of
+  the server's sequence number.
+
+At this stage, both sides have agreed a sequence number with the other for the
+data that they are sending, so can start safely exchanging data.
+
+### Terminating a connection
+
+There's a similar mechanism for terminating a connection, though each side can
+choose to terminate their side of the communication independently (known as
+'half-closing' the connection). When one side decides it no longer wants to
+send data, it sends a packet with the `FIN` flag set. The other side
+acknowledges the close with a packet containing the `ACK` flag. This would
+normally require four packets to be exchanged before both sides can close the
+connection, but if both are closing at the same time, the middle packets can be
+combined into a single packet with both the `FIN` and `ACK` flags set.
+
+### Reliable delivery
+
+The sequence numbers on each side of the connection are the mechanism by which
+reliable delivery is assured. The sequence numbers in each direction are
+entirely independent. As we saw in the connection initiation, the three way
+handshake is designed so that both side generate a random initial sequence
+number (randomised in order to prevent certain attacks), and communicate that
+sequence number to the other side.
+
+From here, the sequence number in the packet header represents the ordered
+sequence of bytes in the payload of that packet. The sequence number is that of
+the first byte in the packet. So, a packet containing 10 bytes of data, with a
+sequence number 3 contains bytes with sequence numbers 3, 4, 5, 6, 7, 8, 9, 10,
+11, 12. The next packet being sent out would have a sequence number of 13 as
+the sequence number of the first byte in its packet.
+
+Packets on the Internet don't always travel on the same path. Part of the
+design of the overall system, as we'll see later, is that each packet makes an
+independent trip through the network, and each intermediate hop is allowed to
+make an independent decision about where best to send a packet next in order to
+get it closer to its destination. The flip side of this is that packets can
+arrive at their destination in the wrong order. The sequence number allows the
+receiver to put packets back into the correct order before passing them up to
+the application layer, giving it the impression of a continuous byte stream.
+
+The receiver confirms it has received all bytes up to a particular sequence
+number by sending a packet with the `ACK` flag set, and the acknowledgement
+number set to the next sequence number it expects. So, in the above example,
+having received a 10 byte packet with sequence number 3, it could send an
+acknowledgement with the acknowledgement number set to 13 to indicate that's
+the next number it expects to receive.
+
+The sender is able to infer that data has been dropped or lost in the network
+from these acknowledgements. If a sequence number that's been sent is not
+acknowledged within a particular time out, we can infer that the packet in
+question -- and all subsequent packets (FIXME: I think, though something is
+bothering me about that) -- have been dropped, and need to be retransmitted.
+
+Of course, it's always possible that packets have been delayed, rather than
+dropped, and this retransmission will cause duplicate packets to arrive at the
+receiver. (It's also possible that acknowledgement packets get dropped, so data
+which has been received is never acknowledged, and is retransmitted anyway.)
+The sequences numbers protect the receiver from that, too, in that it can just
+ignore a sequence number which is less than the highest consecutive sequence
+number it has already seen.
+
+There's some clever trickery -- in the form of TCP timestamps -- to cope with
+the inevitability of sequence numbers (which are a fixed size) wrapping around.
+Even if the sequence number started at 0 every time, they'd wrap around every
+4GB of data. Starting at a truly random number in that range means that on
+average, it'll wrap around after less than 2GB of data has been transmitted,
+something not entirely uncommon.
+
+### Controlling the rate data is sent
+
+There are two reasons for controlling the rate at which data is sent:
+
+* There's no point in sending data faster than the recipient is able to process
+  it. It might be a slow client, or have a small amount of memory that it can
+  use to buffer data.
+
+* The intermediate network might be overloaded, causing a condition known as
+  'congestion collapse', where the intermediate network is completely
+  overwhelmed with resent data as a result of dropping packets.
+
+The receiver uses the 16-bit value of the window size to indicate the amount of
+data (in bytes, usually) that it's prepared to buffer. This, then, is the
+maximum amount of unacknowledged data that can be in flight at a time without
+having been acknowledged. So, for example, if the receiver most recently
+advertised a window size of 10, and said that the next sequence number is
+expects is 24, then the maximum number of payload bytes the sender can send is
+10 bytes, up to sequence number 33. (In practice, the numbers are normally a
+little bigger!) This receive window adapts over time, as the application layer
+reads data from the transport layer's buffer.
+
+There are many different algorithms for congestion control and congestion
+avoidance in the intermediate network, but most work by starting out
+cautiously, then expanding until they hit a boundary. This is known as
+slow-start. In addition to keeping track of a receive window size (called
+`rwnd`), we also keep track of a congestion window size (called `cwnd`). The
+maximum amount of unacknowledged data in flight is the minimum of these two
+values. Contrary to the receive window, which is managed by the receiver, the
+congestion window is private to the sender, though it's modified based on
+acknowledgements from the receiver.
+
+With slow-start, the connection windows starts out at a small, conservative
+value. When first introduced it was the maximum length of a single payload,
+called the maximum segment size (MSS). Since then, it's been increased to 2,
+then 4, then 10 times the MSS. We start out assuming the worst, that the
+maximum amount of unacknowledged data we can have in flight is small.
+
+This is terrible for performance, by the way, since acknowledging receipt of
+data requires a full round trip, twice as long as data heading in just one
+direction. If our maximum window stayed at the equivalent of a single packet,
+the sender would only be able to send a single packet, then have to wait on
+that packet being acknowledged before sending the next, effectively halving
+network bandwidth.
+
+We start increasing the connection window by one MSS every time an
+acknowledgement is received. So, for every packet acknowledged, two new packets
+can be transmitted (assuming the sender has a buffer full of data waiting to be
+sent). This part of the conversation is called 'exponential growth' as the
+sender is able to relatively quickly increase the window to the capabilities of
+the receiver and the network.
+
+Inevitably, assuming the bottleneck is the network, not the receiver, packets
+will be dropped. Dropped packets are a normal part of the communication
+mechanism, and indicate to the sender that it needs to slow down its pace a
+little. When the sender is able to infer that a packet has been dropped, it
+switches from slow-start growth to congestion avoidance. At this point, it cuts
+the congestion window by some amount (in some implementations all the way back
+to one segment, in others to half the current congestion window size) and go
+back to the slow start mechanism.
+
+Like I say, there are variations on this technique, but all the ones I
+understand exhibit a sawtooth behaviour in the congestion window size, assuming
+it never exceeds the receive window.
+
 ## Keywords I want to incorporate
 
 * Proxy caches
 * DNS resolution.
 * HTTP
+  * Content negotiation
+  * Sessions
+  * Caching semantics.
 * TLS
 * Next protocol negotiation and SPDY.
 * Gateway nodes, internet routing, routing protocols.
